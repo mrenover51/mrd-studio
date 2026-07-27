@@ -1,4 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
+import { CookieButton } from "@/components/cookies/CookieButton";
 
 export function Footer() {
   return (
@@ -25,9 +27,9 @@ export function Footer() {
               <span className="grid size-10 shrink-0 place-items-center rounded-full border border-accent/15 bg-accent/[.035] text-accent transition-all duration-500 group-hover:border-accent/35 group-hover:shadow-[0_0_18px_rgba(0,217,255,.08)]"><Phone size={15} strokeWidth={1.4} /></span>
               <span><span className="block text-[9px] uppercase tracking-[.18em] text-white/35">Téléphone</span><span className="mt-2 block text-sm text-muted transition-colors duration-500 group-hover:text-paper">06 07 84 64 25</span></span>
             </a>
-            <a href="mailto:mrenover51@gmail.com" className="group flex gap-4">
+            <a href="mailto:contact@mrdstudio.fr" className="group flex gap-4">
               <span className="grid size-10 shrink-0 place-items-center rounded-full border border-accent/15 bg-accent/[.035] text-accent transition-all duration-500 group-hover:border-accent/35 group-hover:shadow-[0_0_18px_rgba(0,217,255,.08)]"><Mail size={15} strokeWidth={1.4} /></span>
-              <span><span className="block text-[9px] uppercase tracking-[.18em] text-white/35">Email</span><span className="mt-2 block text-sm text-muted transition-colors duration-500 group-hover:text-paper">mrenover51@gmail.com</span></span>
+              <span><span className="block text-[9px] uppercase tracking-[.18em] text-white/35">Email</span><span className="mt-2 block text-sm text-muted transition-colors duration-500 group-hover:text-paper">contact@mrdstudio.fr</span></span>
             </a>
             <div className="flex gap-4 sm:col-span-2">
               <span className="grid size-10 shrink-0 place-items-center rounded-full border border-accent/15 bg-accent/[.035] text-accent"><MapPin size={15} strokeWidth={1.4} /></span>
@@ -37,6 +39,12 @@ export function Footer() {
           <p className="mt-9 max-w-xl border-t border-white/[.07] pt-7 text-xs leading-6 text-white/45">
             Chaque projet est conçu sur mesure, avec une attention particulière portée au design, aux performances et au référencement.
           </p>
+          <nav aria-label="Informations légales" className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-[9px] uppercase tracking-[.1em] text-white/35">
+            <Link href="/politique-de-confidentialite" className="transition-colors duration-500 hover:text-accent">Confidentialité</Link>
+            <Link href="/politique-cookies" className="transition-colors duration-500 hover:text-accent">Politique cookies</Link>
+            <Link href="/mentions-legales" className="transition-colors duration-500 hover:text-accent">Mentions légales</Link>
+            <CookieButton />
+          </nav>
         </div>
       </div>
 

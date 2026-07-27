@@ -10,20 +10,18 @@ export type Department = {
   opportunities: string;
   localSeo: string;
   approach: string;
-  testimonial: { quote: string; author: string; company: string };
 };
 
 export const departments: Department[] = [
   {
     slug: "marne", name: "Marne", code: "51", capital: "Châlons-en-Champagne",
-    cities: ["Reims", "Épernay", "Châlons-en-Champagne", "Vitry-le-François", "Sézanne", "Avize", "Fismes", "Tinqueux", "Cormontreuil", "Bétheny"],
+    cities: ["Reims", "Épernay", "Châlons-en-Champagne", "Vitry-le-François", "Sézanne", "Avize", "Fismes", "Tinqueux", "Cormontreuil", "Bétheny", "Dormans", "Bezannes"],
     lead: "La Marne réunit des marchés que peu de territoires peuvent associer : une métropole universitaire à Reims, la capitale mondiale du Champagne à Épernay, une préfecture administrative à Châlons-en-Champagne et un réseau dense de communes où artisans, exploitations viticoles et PME travaillent souvent au-delà des frontières régionales. Un site efficace doit traduire cette diversité sans perdre la précision nécessaire au référencement local.",
     economy: "Le tissu marnais repose sur la viticulture et ses métiers connexes, l’agro-industrie, la logistique, le commerce, le tourisme de mémoire et un secteur tertiaire en croissance. Les maisons de Champagne n’ont pas les mêmes attentes qu’un artisan de Sézanne, un cabinet rémois ou une entreprise industrielle de Vitry-le-François. Nous construisons donc une stratégie éditoriale et une expérience distinctes, adaptées au cycle de décision de chaque activité.",
     territory: "Entre la Montagne de Reims, la Côte des Blancs, la vallée de la Marne et les plaines de Champagne crayeuse, l’identité locale est forte mais jamais uniforme. MRD Studio est implanté à Avize : cette proximité permet de comprendre les codes du territoire, les attentes d’une clientèle internationale et la nécessité de préserver une image premium sans tomber dans les clichés graphiques du monde viticole.",
     opportunities: "La concurrence numérique reste très inégale. De nombreuses entreprises reconnues disposent encore d’un site lent, difficile à consulter sur mobile ou incapable d’expliquer clairement leur valeur. Une refonte structurée offre un avantage mesurable : davantage de demandes qualifiées, une meilleure visibilité dans Google Maps, des contenus qui répondent aux recherches locales et une image cohérente avec la qualité réelle de l’entreprise.",
     localSeo: "Nous travaillons les requêtes liées aux communes, aux bassins d’activité et aux intentions concrètes. Une stratégie marnaise peut associer des pages de services, des études de cas, des contenus autour du Champagne ou du tourisme, des données structurées et une fiche Google Business Profile correctement reliée au site. L’objectif n’est pas de répéter le nom des villes, mais de démontrer une connaissance utile du marché.",
     approach: "Chaque projet commence par un audit de l’offre, de la concurrence locale et du parcours commercial. L’architecture est ensuite pensée pour guider un prospect depuis sa recherche jusqu’à la prise de contact. Design, développement Next.js, rédaction, SEO technique et mesure des conversions sont réunis dans une démarche unique, avec des performances élevées sur mobile comme sur ordinateur.",
-    testimonial: { quote: "Une compréhension immédiate de notre univers et des enjeux propres à la Champagne. Le nouveau site génère des demandes beaucoup plus pertinentes.", author: "Claire M.", company: "Maison indépendante, Épernay" },
   },
   {
     slug: "aisne", name: "Aisne", code: "02", capital: "Laon",
@@ -34,7 +32,6 @@ export const departments: Department[] = [
     opportunities: "Les recherches locales dans l’Aisne sont souvent très proches d’une décision : trouver un artisan disponible, comparer un prestataire B2B, réserver une adresse ou contacter une profession libérale. Un site rapide, accessible et documenté peut prendre une place importante face aux annuaires. Il devient un actif commercial autonome et non une simple carte de visite.",
     localSeo: "La stratégie associe la qualité des pages locales, la cohérence des coordonnées, les avis, le balisage LocalBusiness, la couverture des questions fréquentes et les liens avec Google Business Profile. Nous analysons aussi la manière dont les habitants nomment leur secteur, car les recherches peuvent viser une ville, une communauté d’agglomération ou un axe reliant plusieurs communes.",
     approach: "MRD Studio privilégie une méthode lisible : découverte des objectifs, hiérarchie des offres, prototype, direction artistique, développement, optimisation technique puis accompagnement. Les contenus sont écrits pour des personnes avant d’être interprétés par les moteurs. Cette exigence améliore simultanément l’EEAT, l’engagement et la conversion.",
-    testimonial: { quote: "Le site explique enfin notre métier sans jargon. Nous sommes mieux trouvés et surtout contactés par les bons interlocuteurs.", author: "Julien D.", company: "PME industrielle, Saint-Quentin" },
   },
   {
     slug: "ardennes", name: "Ardennes", code: "08", capital: "Charleville-Mézières",
@@ -45,7 +42,6 @@ export const departments: Department[] = [
     opportunities: "De nombreux marchés industriels commencent désormais par une vérification en ligne, même lorsque la relation commerciale se construit ensuite par recommandation. Un site crédible confirme la solidité d’un fournisseur. Pour le tourisme ou les services, il réduit au contraire le temps entre la découverte et la réservation. Dans les deux cas, performance et clarté sont décisives.",
     localSeo: "Nous structurons les offres autour des intentions locales et professionnelles, puis nous renforçons leur crédibilité par des études de cas, des auteurs identifiés, des données structurées et des informations d’entreprise cohérentes. Les liens internes relient les pages géographiques aux expertises sans créer de répétition artificielle.",
     approach: "L’accompagnement combine stratégie, direction artistique, UX, développement Next.js et SEO. Les interfaces restent sobres, rapides et adaptées aux usages mobiles. Une attention particulière est portée à l’accessibilité, importante pour les collectivités et les entreprises souhaitant proposer une expérience fiable à tous leurs publics.",
-    testimonial: { quote: "MRD Studio a réussi à donner une image contemporaine à un métier industriel très technique, sans perdre notre sérieux.", author: "Marc V.", company: "Entreprise de mécanique, Charleville-Mézières" },
   },
   {
     slug: "aube", name: "Aube", code: "10", capital: "Troyes",
@@ -56,7 +52,6 @@ export const departments: Department[] = [
     opportunities: "Le niveau d’exigence visuelle des consommateurs progresse. Dans un territoire connu pour ses marques et son patrimoine, une interface générique peut réduire la confiance. À l’inverse, une expérience numérique précise permet de soutenir un positionnement premium, d’améliorer le panier moyen, de développer les réservations ou d’accélérer les demandes professionnelles.",
     localSeo: "Nous associons recherche sémantique, pages de services, contenus locaux, optimisation des images, données structurées et suivi des performances. Les requêtes saisonnières liées au tourisme, aux soldes, aux vendanges ou aux événements sont intégrées lorsque cela sert réellement l’activité. Chaque page possède une fonction claire dans le parcours.",
     approach: "Notre méthode part des données disponibles et des objectifs commerciaux. Le design est ensuite conçu sur mesure, puis développé avec une base technique rapide et maintenable. La mesure des formulaires, appels et actions importantes permet d’arbitrer les évolutions après la mise en ligne au lieu de travailler sur des impressions.",
-    testimonial: { quote: "Le nouveau parcours rend notre offre beaucoup plus lisible. Les réservations directes ont progressé dès les premières semaines.", author: "Sophie R.", company: "Maison d’hôtes, Côte des Bar" },
   },
   {
     slug: "haute-marne", name: "Haute-Marne", code: "52", capital: "Chaumont",
@@ -67,7 +62,6 @@ export const departments: Department[] = [
     opportunities: "Une présence numérique structurée aide à recruter, convaincre des acheteurs, transmettre un savoir-faire et rendre une destination plus accessible. Les acteurs qui documentent réellement leurs réalisations, leurs procédés ou leur territoire construisent un avantage durable face aux sites institutionnels trop courts ou rarement actualisés.",
     localSeo: "La visibilité passe par une architecture sobre : pages correspondant aux services réels, contenus territoriaux documentés, fiches d’établissement cohérentes, performances mobiles et signaux de confiance. Les données structurées aident Google à comprendre l’organisation, mais elles ne remplacent jamais des informations utiles et vérifiables.",
     approach: "MRD Studio transforme la complexité en parcours simple. Après un audit, nous définissons les messages, les priorités et les preuves. La direction artistique donne une présence singulière, puis le développement garantit rapidité, accessibilité et autonomie. L’accompagnement SEO inscrit le projet dans le temps long.",
-    testimonial: { quote: "Notre expertise était difficile à expliquer. Le site la rend enfin accessible et crédible pour nos prospects nationaux.", author: "Élodie B.", company: "Manufacture, bassin nogentais" },
   },
 ];
 
@@ -82,6 +76,8 @@ export const cityProfiles: Record<string, { department: string; nearby: string[]
   tinqueux: { department: "marne", nearby: ["Reims", "Cormontreuil", "Bétheny"], focus: "retail, restauration, services et entreprises de l’agglomération rémoise", market: "une continuité urbaine avec Reims qui exige un positionnement précis pour éviter la concurrence sémantique" },
   cormontreuil: { department: "marne", nearby: ["Reims", "Tinqueux", "Bétheny"], focus: "zones commerciales, restauration, automobile, santé et services", market: "un secteur à forte intention d’achat où mobile, horaires et itinéraires doivent être impeccables" },
   betheny: { department: "marne", nearby: ["Reims", "Tinqueux", "Cormontreuil"], focus: "TPE, professions libérales, artisans et services résidentiels", market: "une commune intégrée à l’agglomération rémoise mais dotée de recherches locales propres" },
+  dormans: { department: "marne", nearby: ["Épernay", "Château-Thierry", "Reims"], focus: "domaines viticoles, artisans, hébergements, commerces et entreprises de la vallée de la Marne", market: "un bassin situé entre Épernay et Château-Thierry où la visibilité doit conjuguer proximité, œnotourisme et zone d’intervention interrégionale" },
+  bezannes: { department: "marne", nearby: ["Reims", "Cormontreuil", "Tinqueux"], focus: "entreprises tertiaires, cabinets de santé, professions libérales, hôtellerie et activités installées autour de la gare TGV", market: "un pôle récent et concurrentiel où la qualité de l’expérience mobile, la précision des informations et le positionnement de marque jouent un rôle décisif" },
   "saint-quentin": { department: "aisne", nearby: ["Tergnier", "Chauny", "Hirson"], focus: "industrie, textile, logistique, commerce et services B2B", market: "le premier bassin économique de l’Aisne, connecté aux marchés du nord de la France" },
   laon: { department: "aisne", nearby: ["Soissons", "Saint-Quentin", "Chauny"], focus: "administration, tourisme, professions libérales, santé et commerce", market: "une ville haute patrimoniale et une préfecture où information et confiance structurent les parcours" },
   soissons: { department: "aisne", nearby: ["Laon", "Château-Thierry", "Fismes"], focus: "commerce, agroalimentaire, bâtiment, tourisme et services", market: "un bassin tourné vers Reims et l’Île-de-France, propice à une stratégie de visibilité élargie" },

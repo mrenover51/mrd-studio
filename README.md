@@ -32,7 +32,7 @@ Le projet est configuré par `vercel.json`. Le build attendu est `npm run build`
 
 Avant la mise en ligne :
 
-1. connecter le domaine `mrd-studio.fr` ;
+1. connecter le domaine `mrdstudio.fr` ;
 2. ajouter les deux variables Resend aux environnements Production et Preview appropriés ;
 3. vérifier le domaine d’envoi dans Resend ;
 4. lancer un audit Lighthouse sur l’URL Vercel finale ;

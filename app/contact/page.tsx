@@ -9,9 +9,9 @@ import { Reveal } from "@/components/ui/reveal";
 export const metadata: Metadata = {
   title: "Contact — Parlons de votre projet",
   description: "Contactez MRD Studio pour votre site internet premium, votre stratégie digitale, votre identité visuelle ou votre référencement.",
-  alternates: { canonical: "/contact" },
-  openGraph: { title: "Parlons de votre projet | MRD Studio", description: "Chaque grand projet commence par une conversation. Présentez-nous votre ambition.", url: "/contact", images: [{ url: "/images/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Parlons de votre projet | MRD Studio", description: "Présentez-nous votre projet digital. MRD Studio vous répond sous 24 heures.", images: ["/images/logo.png"] },
+  alternates: { canonical: "/contact", languages: { "fr-FR": "/contact", "x-default": "/contact" } },
+  openGraph: { title: "Parlons de votre projet | MRD Studio", description: "Chaque grand projet commence par une conversation. Présentez-nous votre ambition.", url: "/contact", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Parlons de votre projet | MRD Studio", description: "Présentez-nous votre projet digital. MRD Studio vous répond sous 24 heures.", images: ["/logo.png"] },
 };
 
 const benefits = ["Création de sites internet premium", "SEO optimisé", "Responsive sur tous les appareils", "Accompagnement personnalisé", "Développement sur mesure", "Hébergement & maintenance", "Réponse sous 24 h", "Premier échange gratuit"];
@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="contenu-principal">
         <section className="relative overflow-hidden pb-20 pt-44 sm:pb-28 sm:pt-52">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_55%_at_75%_40%,rgba(0,217,255,.12),transparent_72%),radial-gradient(ellipse_38%_48%_at_15%_45%,rgba(122,92,255,.05),transparent_100%),linear-gradient(135deg,#06070a,#10131a_58%,#06070a)]" />
           <div className="particles pointer-events-none absolute inset-0" />
@@ -36,7 +36,7 @@ export default function ContactPage() {
                   <div className="flex gap-4"><Building2 size={18} className="mt-1 shrink-0 text-accent" /><div><p className="text-[10px] uppercase tracking-[.16em] text-white/35">Entreprise</p><p className="mt-2 text-sm">MRD Studio</p></div></div>
                   <div className="flex gap-4"><MapPin size={18} className="mt-1 shrink-0 text-accent" /><div><p className="text-[10px] uppercase tracking-[.16em] text-white/35">Adresse</p><p className="mt-2 text-sm leading-6 text-muted">425 Rempart du Nord<br />51190 Avize</p></div></div>
                   <a href="tel:+33607846425" className="group flex gap-4"><Phone size={18} className="mt-1 shrink-0 text-accent" /><div><p className="text-[10px] uppercase tracking-[.16em] text-white/35">Téléphone</p><p className="mt-2 text-sm text-muted transition-colors group-hover:text-paper">06 07 84 64 25</p></div></a>
-                  <a href="mailto:mrenover51@gmail.com" className="group flex gap-4"><Mail size={18} className="mt-1 shrink-0 text-accent" /><div><p className="text-[10px] uppercase tracking-[.16em] text-white/35">Email</p><p className="mt-2 text-sm text-muted transition-colors group-hover:text-paper">mrenover51@gmail.com</p></div></a>
+                  <a href="mailto:contact@mrdstudio.fr" className="group flex gap-4"><Mail size={18} className="mt-1 shrink-0 text-accent" /><div><p className="text-[10px] uppercase tracking-[.16em] text-white/35">Email</p><p className="mt-2 text-sm text-muted transition-colors group-hover:text-paper">contact@mrdstudio.fr</p></div></a>
                 </div>
               </div>
               <div className="rounded-[22px] border border-white/[.08] bg-ink p-7 sm:p-9"><p className="eyebrow mb-5">Notre engagement</p><h2 className="display text-4xl leading-[.96] tracking-[-.04em]">Pourquoi choisir<br /><span className="text-accent">MRD Studio ?</span></h2><div className="mt-8 grid gap-3">{benefits.map(item => <div key={item} className="flex items-start gap-3 text-xs leading-5 text-muted"><span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border border-accent/35 text-accent"><Check size={11} /></span>{item}</div>)}</div></div>

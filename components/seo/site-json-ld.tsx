@@ -1,4 +1,18 @@
-const siteUrl = "https://mrd-studio.fr";
+const siteUrl = "https://mrdstudio.fr";
+const services = [
+  "Création de site internet",
+  "Refonte de site internet",
+  "Site vitrine",
+  "Site premium",
+  "SEO local",
+  "Référencement Google",
+  "Maintenance de site internet",
+  "Optimisation Lighthouse",
+  "Création d’identité visuelle",
+  "Gestion des réseaux sociaux",
+  "Community management",
+  "Google Business Profile",
+];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -14,8 +28,24 @@ const structuredData = {
         width: 1536,
         height: 1024,
       },
-      email: "mailto:mrenover51@gmail.com",
+      email: "mailto:contact@mrdstudio.fr",
       telephone: "+33607846425",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+33607846425",
+        email: "contact@mrdstudio.fr",
+        contactType: "customer service",
+        areaServed: "FR",
+        availableLanguage: ["fr"],
+      },
+      knowsAbout: [
+        "Création de sites internet",
+        "Next.js",
+        "Design UX et UI",
+        "Référencement naturel",
+        "SEO local",
+        "Core Web Vitals",
+      ],
     },
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
@@ -26,7 +56,7 @@ const structuredData = {
       description:
         "Studio digital spécialisé dans la création de sites internet sur mesure, le design d’interface, la performance et le référencement.",
       telephone: "+33607846425",
-      email: "mailto:mrenover51@gmail.com",
+      email: "mailto:contact@mrdstudio.fr",
       priceRange: "Sur devis",
       address: {
         "@type": "PostalAddress",
@@ -40,7 +70,31 @@ const structuredData = {
         "@type": "Country",
         name: "France",
       },
+      contactPoint: { "@id": `${siteUrl}/#contact` },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        "@id": `${siteUrl}/#services`,
+        name: "Services digitaux MRD Studio",
+        itemListElement: services.map((name, index) => ({
+          "@type": "Offer",
+          position: index + 1,
+          itemOffered: {
+            "@type": "Service",
+            name,
+            provider: { "@id": `${siteUrl}/#business` },
+          },
+        })),
+      },
       parentOrganization: { "@id": `${siteUrl}/#organization` },
+    },
+    {
+      "@type": "ContactPoint",
+      "@id": `${siteUrl}/#contact`,
+      telephone: "+33607846425",
+      email: "contact@mrdstudio.fr",
+      contactType: "customer service",
+      areaServed: "FR",
+      availableLanguage: ["fr"],
     },
     {
       "@type": "WebSite",
@@ -49,6 +103,11 @@ const structuredData = {
       name: "MRD Studio",
       inLanguage: "fr-FR",
       publisher: { "@id": `${siteUrl}/#organization` },
+      potentialAction: {
+        "@type": "CommunicateAction",
+        target: `${siteUrl}/contact`,
+        name: "Contacter MRD Studio",
+      },
     },
   ],
 };
@@ -57,7 +116,7 @@ export function SiteJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
     />
   );
 }

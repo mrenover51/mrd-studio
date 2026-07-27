@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/contact-schema";
 
-const destination = "mrenover51@gmail.com";
+const sender = "MRD Studio <contact@mrdstudio.fr>";
+const destination = "contact@mrdstudio.fr";
 const rateLimit = new Map<string, { count: number; resetAt: number }>();
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX = 5;
@@ -54,8 +55,7 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const from = process.env.RESEND_FROM;
-    if (!apiKey || !from) {
+    if (!apiKey) {
       return NextResponse.json({ message: "Le service d’envoi est momentanément indisponible." }, { status: 503 });
     }
 
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
     const sendEmail = resend.emails.send({
-      from,
+      from: sender,
       to: destination,
       replyTo: email,
       subject: "Nouvelle demande depuis MRD Studio",
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
             <div style="padding:44px 18px">
               <div style="max-width:680px;margin:auto;border:1px solid #29211d;border-radius:20px;overflow:hidden;background:#0d0d0d">
                 <div style="padding:34px 40px;border-bottom:1px solid #29211d;background:linear-gradient(135deg,#111,#090706)">
-                  <img src="https://mrd-studio.fr/logo.png" width="112" alt="MRD Studio" style="display:block;max-width:112px;height:auto" />
+                  <img src="https://mrdstudio.fr/logo.png" width="112" alt="MRD Studio" style="display:block;max-width:112px;height:auto" />
                   <p style="margin:24px 0 0;color:#00d9ff;font-size:11px;letter-spacing:2px;text-transform:uppercase">Nouvelle demande</p>
                   <h1 style="margin:10px 0 0;font-size:36px;font-weight:500">Un nouveau projet commence.</h1>
                 </div>

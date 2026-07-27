@@ -26,6 +26,8 @@ export function Header() {
   }, []);
 
   return (
+    <>
+    <a href="#contenu-principal" className="fixed left-4 top-3 z-[120] -translate-y-24 rounded-full bg-accent px-5 py-3 text-xs font-semibold text-ink shadow-[0_8px_30px_rgba(0,217,255,.25)] transition-transform duration-300 focus:translate-y-0">Aller au contenu principal</a>
     <header className={`fixed inset-x-0 top-0 z-50 px-3 transition-[padding,transform] duration-700 ease-out ${scrolled ? "translate-y-3 sm:px-5" : "translate-y-5 sm:px-7"}`}>
       <div
         className={`relative mx-auto flex max-w-[1320px] items-center justify-between overflow-hidden rounded-full border px-5 transition-[height,max-width,background-color,border-color,box-shadow] duration-700 ease-out sm:px-7 ${
@@ -65,7 +67,7 @@ export function Header() {
           <ArrowUpRight size={12} className="relative transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
 
-        <button className="relative z-10 grid size-9 place-items-center rounded-full border border-white/10 bg-white/[.025] text-paper lg:hidden" aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} onClick={() => setOpen(!open)}>
+        <button className="relative z-10 grid size-9 place-items-center rounded-full border border-white/10 bg-white/[.025] text-paper lg:hidden" aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={open} aria-controls="navigation-mobile" onClick={() => setOpen(!open)}>
           {open ? <X size={17} /> : <Menu size={17} />}
         </button>
       </div>
@@ -73,6 +75,7 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            id="navigation-mobile"
             initial={{ opacity: 0, y: -12, scale: .98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: .98 }}
@@ -90,5 +93,6 @@ export function Header() {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 }

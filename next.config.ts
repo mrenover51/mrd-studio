@@ -6,11 +6,11 @@ const contentSecurityPolicy = [
   "form-action 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com",
   "frame-src https://www.google.com https://maps.google.com",
   "upgrade-insecure-requests",
 ].join("; ");
@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     const cities = [
-      "reims", "epernay", "chalons-en-champagne", "vitry-le-francois", "sezanne", "avize", "fismes", "tinqueux", "cormontreuil", "betheny",
+      "reims", "epernay", "chalons-en-champagne", "vitry-le-francois", "dormans", "bezannes", "sezanne", "avize", "fismes", "tinqueux", "cormontreuil", "betheny",
       "saint-quentin", "laon", "soissons", "chateau-thierry", "chauny", "tergnier", "hirson",
       "charleville-mezieres", "sedan", "rethel", "givet", "nouzonville",
       "troyes", "romilly-sur-seine", "nogent-sur-seine", "bar-sur-aube", "bar-sur-seine",

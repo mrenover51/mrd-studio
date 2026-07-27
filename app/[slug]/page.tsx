@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocalPage } from "@/components/seo/local-page";
+import { ServicePage } from "@/components/seo/service-page";
 import { cityProfiles, citySlug, departments } from "@/lib/seo-local-data";
+import { serviceBySlug, serviceProfiles } from "@/lib/service-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,6 +21,7 @@ function resolveLocalPage(slug: string) {
 
 export function generateStaticParams() {
   return [
+    ...serviceProfiles.map(item => ({ slug: item.slug })),
     ...departments.map(item => ({ slug: `creation-site-${item.slug}` })),
     ...Object.keys(cityProfiles).map(city => ({ slug: `creation-site-${city}` })),
   ];
@@ -26,6 +29,32 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const service = serviceBySlug[slug];
+  if (service) {
+    const canonical = `/${slug}`;
+    return {
+      title: service.title,
+      description: service.metaDescription,
+      alternates: {
+        canonical,
+        languages: { "fr-FR": canonical, "x-default": canonical },
+      },
+      openGraph: {
+        title: service.title,
+        description: service.metaDescription,
+        url: canonical,
+        locale: "fr_FR",
+        type: "website",
+        images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: service.title,
+        description: service.metaDescription,
+        images: ["/logo.png"],
+      },
+    };
+  }
   const page = resolveLocalPage(slug);
   if (!page) return {};
   const { department, city } = page;
@@ -37,14 +66,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical },
-    openGraph: { title, description, url: canonical, locale: "fr_FR", type: "website", images: [{ url: "/images/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-    twitter: { card: "summary_large_image", title, description, images: ["/images/logo.png"] },
+    alternates: {
+      canonical,
+      languages: { "fr-FR": canonical, "x-default": canonical },
+    },
+    openGraph: { title, description, url: canonical, locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/logo.png"] },
   };
 }
 
 export default async function SeoLocalPage({ params }: Props) {
   const { slug } = await params;
+  const service = serviceBySlug[slug];
+  if (service) return <ServicePage service={service} />;
   const page = resolveLocalPage(slug);
   if (!page) notFound();
   return <LocalPage {...page} />;

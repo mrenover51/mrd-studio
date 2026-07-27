@@ -5,6 +5,7 @@ import { AmbientLight } from "@/components/ui/ambient-light";
 import { VisualSignature } from "@/components/ui/visual-signature";
 import { LightSystem } from "@/components/ui/light-system";
 import { SiteJsonLd } from "@/components/seo/site-json-ld";
+import { CookieProvider } from "@/components/cookies/CookieProvider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,7 +22,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mrd-studio.fr"),
+  metadataBase: new URL("https://mrdstudio.fr"),
   title: {
     default: "MRD Studio — Création de sites internet sur mesure",
     template: "%s | MRD Studio",
@@ -48,7 +49,10 @@ export const metadata: Metadata = {
     apple: [{ url: "/logo.png", sizes: "1536x1024", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "fr-FR": "/", "x-default": "/" },
+  },
   openGraph: {
     title: "MRD Studio — Sites internet sur mesure",
     description:
@@ -78,12 +82,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
       <body>
-        <SiteJsonLd />
-        <VisualSignature />
-        <AmbientLight />
-        <LightSystem />
-        {children}
-        <CustomCursor />
+        <CookieProvider>
+          <SiteJsonLd />
+          <VisualSignature />
+          <AmbientLight />
+          <LightSystem />
+          {children}
+          <CustomCursor />
+        </CookieProvider>
       </body>
     </html>
   );

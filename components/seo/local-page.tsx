@@ -9,10 +9,10 @@ import type { Department } from "@/lib/seo-local-data";
 import { citySlug } from "@/lib/seo-local-data";
 
 const services = [
-  ["Direction artistique", "Une identité numérique reconnaissable, cohérente avec votre positionnement et conçue sans thème préfabriqué.", Sparkles],
-  ["Développement Next.js", "Une base technique moderne, rapide, sécurisée et maintenable sur mobile comme sur ordinateur.", Smartphone],
-  ["Référencement local", "Une architecture, des contenus et des données structurées qui répondent aux recherches de votre territoire.", Search],
-  ["Accompagnement", "Un interlocuteur impliqué, des objectifs mesurables et une amélioration continue après la mise en ligne.", ShieldCheck],
+  ["Direction artistique", "Une identité numérique reconnaissable, cohérente avec votre positionnement et conçue sans thème préfabriqué.", Sparkles, "/creation-identite-visuelle"],
+  ["Développement Next.js", "Une base technique moderne, rapide, sécurisée et maintenable sur mobile comme sur ordinateur.", Smartphone, "/creation-site-internet"],
+  ["Référencement local", "Une architecture, des contenus et des données structurées qui répondent aux recherches de votre territoire.", Search, "/seo-local"],
+  ["Accompagnement", "Un interlocuteur impliqué, des objectifs mesurables et une amélioration continue après la mise en ligne.", ShieldCheck, "/maintenance-site-internet"],
 ];
 
 const faqs = [
@@ -23,13 +23,12 @@ const faqs = [
 ];
 
 function Schemas({ title, description, path, department, city }: { title: string; description: string; path: string; department: Department; city?: string }) {
-  const url = `https://mrd-studio.fr/${path}`;
+  const url = `https://mrdstudio.fr/${path}`;
   const area = city || department.name;
   return (
     <JsonLd data={[
-      { "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://mrd-studio.fr/#business", name: "MRD Studio", image: "https://mrd-studio.fr/images/logo.png", url: "https://mrd-studio.fr", telephone: "+33607846425", email: "mrenover51@gmail.com", priceRange: "€€€", address: { "@type": "PostalAddress", streetAddress: "425 Rempart du Nord", postalCode: "51190", addressLocality: "Avize", addressRegion: "Grand Est", addressCountry: "FR" }, areaServed: { "@type": city ? "City" : "AdministrativeArea", name: area } },
-      { "@context": "https://schema.org", "@type": "Service", name: title, description, url, provider: { "@id": "https://mrd-studio.fr/#business" }, areaServed: { "@type": city ? "City" : "AdministrativeArea", name: area }, serviceType: "Création de sites internet et référencement local" },
-      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Accueil", item: "https://mrd-studio.fr" }, { "@type": "ListItem", position: 2, name: `Création de site ${department.name}`, item: `https://mrd-studio.fr/creation-site-${department.slug}` }, ...(city ? [{ "@type": "ListItem", position: 3, name: `Création de site ${city}`, item: url }] : [])] },
+      { "@context": "https://schema.org", "@type": "Service", name: title, description, url, provider: { "@id": "https://mrdstudio.fr/#business" }, areaServed: { "@type": city ? "City" : "AdministrativeArea", name: area }, serviceType: "Création de sites internet et référencement local" },
+      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Accueil", item: "https://mrdstudio.fr" }, { "@type": "ListItem", position: 2, name: `Création de site ${department.name}`, item: `https://mrdstudio.fr/creation-site-${department.slug}` }, ...(city ? [{ "@type": "ListItem", position: 3, name: `Création de site ${city}`, item: url }] : [])] },
       { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     ]} />
   );
@@ -45,13 +44,13 @@ export function LocalPage({ department, city, cityProfile }: { department: Depar
     <>
       <Schemas title={title} description={description} path={path} department={department} city={city} />
       <Header />
-      <main>
+      <main id="contenu-principal">
         <section className="relative overflow-hidden pb-24 pt-44 sm:pt-52">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_42%_58%_at_78%_40%,rgba(0,217,255,.13),transparent_72%),linear-gradient(135deg,#06070a,#10131a_58%,#06070a)]" />
           <div className="particles absolute inset-0 opacity-30" />
           <div className="container-wide relative">
             <nav aria-label="Fil d’Ariane" className="mb-10 flex flex-wrap gap-2 text-[10px] uppercase tracking-[.14em] text-white/35"><Link href="/">Accueil</Link><span>/</span>{city && <><Link href={`/creation-site-${department.slug}`}>{department.name}</Link><span>/</span></>}<span className="text-accent">{city || department.name}</span></nav>
-            <Reveal><div className="mb-7 flex items-center gap-3"><MapPin size={14} className="text-accent" /><span className="eyebrow">Grand Est · {department.code}</span></div><h1 className="display max-w-6xl text-[clamp(58px,9vw,132px)] leading-[.84] tracking-[-.055em]">{title.split(" à ")[0].split(" dans ")[0]}<br /><em className="font-normal text-accent">{city ? `à ${city}.` : `dans la ${department.name}.`}</em></h1><p className="mt-10 max-w-2xl text-base leading-8 text-muted">{city && cityProfile ? `À ${city}, MRD Studio accompagne les ${cityProfile.focus}. Nous créons des expériences rapides et distinctives pour répondre à ${cityProfile.market}.` : department.lead}</p><div className="mt-10 flex flex-wrap gap-3"><Button href="/contact">Parler de votre projet</Button><Button href="/#portfolio" variant="secondary">Voir nos réalisations</Button></div></Reveal>
+            <Reveal><div className="mb-7 flex items-center gap-3"><MapPin size={14} className="text-accent" /><span className="eyebrow">Grand Est · {department.code}</span></div><h1 className="display max-w-6xl text-[clamp(58px,9vw,132px)] leading-[.84] tracking-[-.055em]">{title.split(" à ")[0].split(" dans ")[0]}<br /><em className="font-normal text-accent">{city ? `à ${city}.` : `dans la ${department.name}.`}</em></h1><p className="mt-10 max-w-2xl text-base leading-8 text-muted">{city && cityProfile ? `À ${city}, MRD Studio accompagne les ${cityProfile.focus}. Nous créons des expériences rapides et distinctives pour répondre à ${cityProfile.market}.` : department.lead}</p><div className="mt-10 flex flex-wrap gap-3"><Button href="/contact">Parler de votre projet</Button><Button href="/#concepts" variant="secondary">Découvrir notre approche</Button></div></Reveal>
           </div>
         </section>
 
@@ -62,13 +61,13 @@ export function LocalPage({ department, city, cityProfile }: { department: Depar
         </section>
 
         <section className="section-pad">
-          <div className="container-wide"><Reveal><p className="eyebrow mb-5">Expertises réunies</p><h2 className="display max-w-4xl text-5xl leading-[.95] tracking-[-.04em] sm:text-7xl">Un site pensé pour être <span className="text-accent">vu, compris et choisi.</span></h2></Reveal><div className="mt-16 grid gap-px overflow-hidden rounded-[22px] border border-white/10 bg-white/10 md:grid-cols-2">{services.map(([name, text, Icon], index) => <Reveal key={name as string} delay={index * .06} className="h-full"><article className="group h-full bg-ink p-8 transition-colors duration-700 hover:bg-[#0d0b0a] sm:p-12"><Icon className="mb-14 text-accent" size={24} strokeWidth={1.25} /><h3 className="display text-3xl">{name as string}</h3><p className="mt-4 text-sm leading-7 text-muted">{text as string}</p></article></Reveal>)}</div></div>
+          <div className="container-wide"><Reveal><p className="eyebrow mb-5">Expertises réunies</p><h2 className="display max-w-4xl text-5xl leading-[.95] tracking-[-.04em] sm:text-7xl">Un site pensé pour être <span className="text-accent">vu, compris et choisi.</span></h2></Reveal><div className="mt-16 grid gap-px overflow-hidden rounded-[22px] border border-white/10 bg-white/10 md:grid-cols-2">{services.map(([name, text, Icon, href], index) => <Reveal key={name as string} delay={index * .06} className="h-full"><Link href={href as string} className="group block h-full bg-ink p-8 transition-colors duration-700 hover:bg-[#0d0b0a] sm:p-12"><Icon className="mb-14 text-accent" size={24} strokeWidth={1.25} /><h3 className="display text-3xl">{name as string}</h3><p className="mt-4 text-sm leading-7 text-muted">{text as string}</p><span className="mt-7 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.14em] text-accent">Découvrir <ArrowRight size={12} /></span></Link></Reveal>)}</div></div>
         </section>
 
         <section className="section-pad bg-panel">
           <div className="container-wide grid gap-14 lg:grid-cols-[1.1fr_.9fr]">
             <Reveal><p className="eyebrow mb-5">Pour les entreprises de {area}</p><h2 className="display text-5xl leading-[.96] tracking-[-.04em] sm:text-6xl">Plus qu’une présence.<br /><span className="text-accent">Un avantage commercial.</span></h2><div className="mt-10 space-y-6 text-sm leading-8 text-muted"><p>Artisans et entreprises du bâtiment ont besoin de montrer des réalisations et une zone d’intervention précise. Les commerces et restaurants doivent faciliter la visite, l’appel ou la réservation. Les professions libérales construisent la confiance par la clarté, la pédagogie et les preuves. Les PME et industriels valorisent leurs compétences, leurs moyens et leurs engagements.</p><p>Les domaines viticoles ajoutent une dimension particulière : raconter un terroir, présenter une gamme, accueillir des visiteurs et parfois vendre en ligne, tout en respectant la réglementation. Les collectivités recherchent pour leur part accessibilité, fiabilité et simplicité de mise à jour.</p><p>Nous ne plaquons pas la même interface sur ces besoins. Chaque architecture repose sur le parcours réel du client, les informations dont il a besoin et l’action que l’entreprise souhaite obtenir.</p></div></Reveal>
-            <Reveal delay={.1}><blockquote className="flex h-full min-h-[390px] flex-col justify-between rounded-[22px] border border-accent/15 bg-ink p-9 sm:p-12"><span className="display text-7xl leading-none text-accent/35">“</span><p className="display text-3xl leading-[1.3]">« {department.testimonial.quote} »</p><footer><p className="text-xs font-semibold">{department.testimonial.author}</p><p className="mt-1 text-[10px] text-muted">{department.testimonial.company}</p></footer></blockquote></Reveal>
+            <Reveal delay={.1}><aside className="premium-card flex h-full min-h-[390px] flex-col justify-between p-9 sm:p-12"><ShieldCheck className="text-accent" size={30} strokeWidth={1.25} /><div><p className="eyebrow mb-5">Notre principe</p><p className="display text-3xl leading-[1.25]">Aucune promesse de position garantie. Une méthode documentée, des choix mesurables et un travail SEO inscrit dans la durée.</p></div><p className="text-xs leading-6 text-muted">Les résultats dépendent du marché, de la concurrence, de l’autorité existante et de la régularité éditoriale. Nous présentons ces facteurs avant chaque accompagnement.</p></aside></Reveal>
           </div>
         </section>
 

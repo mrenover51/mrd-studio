@@ -18,10 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical },
-    authors: [{ name: "MRD Studio", url: "https://mrd-studio.fr" }],
-    openGraph: { title, description, url: canonical, type: "article", publishedTime: "2026-07-27", modifiedTime: "2026-07-27", images: [{ url: "/images/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-    twitter: { card: "summary_large_image", title, description, images: ["/images/logo.png"] },
+    alternates: {
+      canonical,
+      languages: { "fr-FR": canonical, "x-default": canonical },
+    },
+    authors: [{ name: "MRD Studio", url: "https://mrdstudio.fr" }],
+    openGraph: { title, description, url: canonical, type: "article", publishedTime: "2026-07-27", modifiedTime: "2026-07-28", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/logo.png"] },
   };
 }
 
