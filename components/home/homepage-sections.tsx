@@ -65,7 +65,7 @@ export function Standards() {
           {standards.map(([Icon, title, text], index) => (
             <Reveal key={title} delay={index * .07}>
               <article className="premium-card group min-h-[320px] p-8 sm:p-10">
-                <div className="flex items-start justify-between"><span className="grid size-12 place-items-center rounded-2xl border border-accent/20 bg-accent/[.05] text-accent"><Icon size={22} strokeWidth={1.4} /></span><span className="text-[9px] tracking-[.24em] text-white/25">0{index + 1}</span></div>
+                <div className="flex items-start justify-between"><span className={`grid size-12 place-items-center rounded-2xl border ${index % 2 ? "border-electric/30 bg-electric/[.07] text-electric" : "border-accent/20 bg-accent/[.05] text-accent"}`}><Icon size={22} strokeWidth={1.4} /></span><span className="text-[9px] tracking-[.24em] text-white/25">0{index + 1}</span></div>
                 <h3 className="display mt-16 text-4xl tracking-[-.04em]">{title}</h3>
                 <p className="mt-5 max-w-lg text-sm leading-7 text-muted">{text}</p>
               </article>
@@ -144,7 +144,7 @@ export function Commitment() {
     <section className="section-pad">
       <div className="container-wide">
         <Reveal><p className="eyebrow mb-6">Notre engagement</p><h2 className="display max-w-5xl text-5xl leading-[.95] tracking-[-.05em] sm:text-7xl">Pas de promesse spectaculaire.<br /><span className="text-accent">Des choix solides.</span></h2></Reveal>
-        <div className="mt-16 grid gap-5 md:grid-cols-2">{commitments.map(([Icon, title, text], index) => <Reveal key={title} delay={index * .07}><article className="premium-card min-h-[390px] p-8 sm:p-11"><Icon className="text-accent" size={25} strokeWidth={1.3} /><span className="mt-16 block text-[9px] tracking-[.25em] text-white/25">ENGAGEMENT / 0{index + 1}</span><h3 className="display mt-5 text-4xl leading-none tracking-[-.04em] sm:text-5xl">{title}</h3><p className="mt-7 max-w-xl text-sm leading-7 text-muted">{text}</p></article></Reveal>)}</div>
+        <div className="mt-16 grid gap-5 md:grid-cols-2">{commitments.map(([Icon, title, text], index) => <Reveal key={title} delay={index * .07}><article className="premium-card min-h-[390px] p-8 sm:p-11"><Icon className={index % 2 ? "text-electric" : "text-accent"} size={25} strokeWidth={1.3} /><span className="mt-16 block text-[9px] tracking-[.25em] text-white/25">ENGAGEMENT / 0{index + 1}</span><h3 className="display mt-5 text-4xl leading-none tracking-[-.04em] sm:text-5xl">{title}</h3><p className="mt-7 max-w-xl text-sm leading-7 text-muted">{text}</p></article></Reveal>)}</div>
       </div>
     </section>
   );
