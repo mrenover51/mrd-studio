@@ -19,7 +19,7 @@ export function Method() {
           {steps.map(([number, title, text, Icon], index) => (
             <Reveal key={title} delay={index * .06}>
               <article className={`relative mb-8 grid md:grid-cols-2 ${index % 2 ? "" : "md:text-right"}`}>
-                <span className="absolute left-[24px] top-9 z-20 size-3 -translate-x-1/2 rounded-full border border-accent bg-ink shadow-[0_0_16px_rgba(0,217,255,.65)] md:left-1/2" />
+                <span className="absolute left-[24px] top-9 z-20 size-3 -translate-x-1/2 rounded-full border border-accent bg-ink shadow-[0_0_12px_rgba(0,217,255,.6),0_0_22px_rgba(122,92,255,.38)] md:left-1/2" />
                 <div className={`premium-card ml-12 min-h-[230px] p-8 md:ml-0 md:w-[calc(100%-56px)] ${index % 2 ? "md:col-start-2 md:ml-14" : "md:mr-14"}`}>
                   <div className={`flex items-center gap-4 ${index % 2 ? "" : "md:justify-end"}`}><span className="grid size-11 place-items-center rounded-2xl border border-accent/20 bg-accent/[.05] text-accent"><Icon size={19} strokeWidth={1.4} /></span><span className="text-[9px] tracking-[.24em] text-accent">{number}</span></div>
                   <h3 className="display mt-9 text-4xl tracking-[-.04em]">{title}</h3>

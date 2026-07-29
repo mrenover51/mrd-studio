@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowDown,
@@ -33,14 +34,13 @@ export function Philosophy() {
           </p>
         </Reveal>
         <Reveal delay={.12}>
-          <div className="premium-card relative aspect-square rounded-[24px]">
-            <div className="absolute inset-[12%] rounded-full border border-accent/15" />
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 45, repeat: Infinity, ease: "linear" }} className="absolute inset-[20%] rounded-full border border-dashed border-accent/25">
-              <span className="absolute left-1/2 top-[-3px] size-1.5 rounded-full bg-accent shadow-[0_0_14px_#00d9ff]" />
-            </motion.div>
-            <motion.div animate={{ rotate: -360 }} transition={{ duration: 62, repeat: Infinity, ease: "linear" }} className="absolute inset-[30%] rounded-full border border-electric/30" />
-            <div className="absolute inset-[37%] rounded-full bg-[radial-gradient(circle_at_36%_30%,#42f5ff,#24327a_28%,#070912_68%)] shadow-[0_0_65px_rgba(0,217,255,.25)]" />
-            <div className="absolute left-[8%] top-1/2 h-px w-[84%] bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
+          <div className="premium-card relative aspect-square rounded-[24px] bg-[radial-gradient(circle_at_68%_28%,rgba(122,92,255,.12),transparent_32%),radial-gradient(circle_at_32%_72%,rgba(0,217,255,.1),transparent_36%)]">
+            <div className="absolute inset-x-[12%] top-[24%] h-px bg-[linear-gradient(90deg,transparent,rgba(0,217,255,.42),rgba(122,92,255,.32),transparent)]" />
+            <div className="absolute inset-x-[18%] top-[42%] h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent)]" />
+            <div className="absolute inset-x-[12%] top-[60%] h-px bg-[linear-gradient(90deg,transparent,rgba(122,92,255,.32),rgba(0,217,255,.28),transparent)]" />
+            <div className="absolute bottom-[18%] left-[18%] top-[18%] w-px bg-gradient-to-b from-transparent via-white/15 to-transparent" />
+            <div className="absolute right-[21%] top-[21%] size-1.5 rounded-full bg-electric shadow-[0_0_18px_rgba(122,92,255,.65)]" />
+            <div className="absolute bottom-[29%] left-[28%] size-1 rounded-full bg-accent shadow-[0_0_16px_rgba(0,217,255,.65)]" />
             <span className="absolute bottom-[8%] left-[9%] text-[8px] uppercase tracking-[.28em] text-white/35">Exploration system / MRD</span>
           </div>
         </Reveal>
@@ -84,7 +84,7 @@ const concepts = [
   ["Commerce", "Produit / Conversion", "from-[#101025] via-[#2f2475] to-[#070912]"],
 ] as const;
 
-function ConceptMockup({ item, index }: { item: typeof concepts[number]; index: number }) {
+const ConceptMockup = memo(function ConceptMockup({ item, index }: { item: typeof concepts[number]; index: number }) {
   return (
     <article className="premium-card group p-3">
       <div className={`relative aspect-[4/3] overflow-hidden rounded-[18px] bg-gradient-to-br ${item[2]} [perspective:1200px]`}>
@@ -99,7 +99,7 @@ function ConceptMockup({ item, index }: { item: typeof concepts[number]; index: 
       </div>
     </article>
   );
-}
+});
 
 export function Concepts() {
   return (
@@ -199,8 +199,7 @@ export function FinalCta() {
   return (
     <section id="contact" className="relative flex min-h-[92vh] items-center overflow-hidden py-32 text-center">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(0,217,255,.16),transparent_35%),radial-gradient(circle_at_50%_52%,rgba(122,92,255,.08),transparent_55%),linear-gradient(to_bottom,#06070a,#10131a,#06070a)]" />
-      <motion.div animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }} className="absolute left-1/2 top-1/2 aspect-square w-[72vw] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-accent/10" />
-      <div className="absolute left-1/2 top-1/2 aspect-square w-[52vw] -translate-x-1/2 -translate-y-1/2 rounded-full border border-electric/10" />
+      <div className="absolute inset-x-[12%] top-1/2 h-px bg-[linear-gradient(90deg,transparent,rgba(0,217,255,.22),rgba(122,92,255,.2),transparent)]" />
       <Reveal className="container-wide relative"><p className="eyebrow mb-7">Votre projet peut commencer ici</p><h2 className="display mx-auto max-w-6xl text-[clamp(54px,8vw,118px)] leading-[.88] tracking-[-.06em]">Prêt à créer un site qui fera <span className="text-accent">la différence ?</span></h2><p className="mx-auto mt-9 max-w-xl text-base leading-8 text-muted">Discutons ensemble de votre projet.</p><Button href="/contact" className="mt-11">Parlons de votre projet</Button></Reveal>
     </section>
   );

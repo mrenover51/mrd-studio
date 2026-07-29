@@ -5,8 +5,8 @@ import { CookieButton } from "@/components/cookies/CookieButton";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-accent/10 bg-ink">
-      <div className="pointer-events-none absolute right-[-12%] top-[-70%] size-[520px] rounded-full bg-accent/[.035] blur-[100px]" />
-      <div className="pointer-events-none absolute inset-x-[8%] top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
+      <div className="pointer-events-none absolute right-[-12%] top-[-70%] size-[520px] rounded-full bg-electric/[.055] blur-[100px]" />
+      <div className="pointer-events-none absolute inset-x-[8%] top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,217,255,.25)_40%,rgba(122,92,255,.25)_62%,transparent)]" />
 
       <div className="container-wide relative grid gap-16 py-16 md:grid-cols-[.9fr_1.1fr] md:gap-24 lg:gap-36 lg:py-20">
         <div>

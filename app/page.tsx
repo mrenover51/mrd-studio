@@ -1,18 +1,18 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/home/hero";
-import { Method } from "@/components/home/method";
-import {
-  Commitment,
-  Comparison,
-  Concepts,
-  CreationProcess,
-  Faq,
-  FinalCta,
-  Philosophy,
-  Standards,
-} from "@/components/home/homepage-sections";
+import dynamic from "next/dynamic";
 import { JsonLd } from "@/components/seo/json-ld";
+
+const Method = dynamic(() => import("@/components/home/method").then((module) => module.Method));
+const Philosophy = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Philosophy));
+const Standards = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Standards));
+const Concepts = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Concepts));
+const Comparison = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Comparison));
+const Commitment = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Commitment));
+const CreationProcess = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.CreationProcess));
+const Faq = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.Faq));
+const FinalCta = dynamic(() => import("@/components/home/homepage-sections").then((module) => module.FinalCta));
 
 export default function Home() {
   return (

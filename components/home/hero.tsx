@@ -11,12 +11,13 @@ import {
 import { ArrowDownRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useMobilePerformance } from "@/hooks/use-mobile-performance";
 
-function MacBook() {
+function MacBook({ simplifyMotion }: { simplifyMotion: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 45, rotateY: -10 }}
-      animate={{ opacity: 1, y: [0, -4, 0], rotateY: [-6, -3.5, -6], rotateX: [2.5, 1.5, 2.5] }}
+      animate={simplifyMotion ? { opacity: 1, y: 0, rotateY: -6, rotateX: 2.5 } : { opacity: 1, y: [0, -4, 0], rotateY: [-6, -3.5, -6], rotateX: [2.5, 1.5, 2.5] }}
       transition={{
         opacity: { duration: 1.3, delay: .25 },
         y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
@@ -57,9 +58,9 @@ function MacBook() {
             <div className="absolute inset-[31%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#42f5ff,#24327a_25%,#070912_65%)] shadow-[0_0_35px_rgba(0,217,255,.25)]" />
             <span className="absolute left-1/2 top-[-2px] size-1 -translate-x-1/2 rounded-full bg-electric shadow-[0_0_8px_#7a5cff]" />
           </div>
-          <motion.div animate={{ x: ["-130%", "430%"] }} transition={{ duration: 9, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }} className="pointer-events-none absolute inset-y-[-30%] w-[18%] -skew-x-12 bg-gradient-to-r from-transparent via-white/[.08] to-transparent blur-sm" />
+          {!simplifyMotion && <motion.div animate={{ x: ["-130%", "430%"] }} transition={{ duration: 9, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }} className="pointer-events-none absolute inset-y-[-30%] w-[18%] -skew-x-12 bg-gradient-to-r from-transparent via-white/[.08] to-transparent blur-sm" />}
         </div>
-        <motion.div animate={{ x: ["-120%", "520%"] }} transition={{ duration: 8, repeat: Infinity, repeatDelay: 7, ease: "easeInOut" }} className="pointer-events-none absolute inset-y-[-20%] z-30 w-[12%] -skew-x-12 bg-gradient-to-r from-transparent via-white/[.1] to-transparent opacity-60 blur-sm" />
+        {!simplifyMotion && <motion.div animate={{ x: ["-120%", "520%"] }} transition={{ duration: 8, repeat: Infinity, repeatDelay: 7, ease: "easeInOut" }} className="pointer-events-none absolute inset-y-[-20%] z-30 w-[12%] -skew-x-12 bg-gradient-to-r from-transparent via-white/[.1] to-transparent opacity-60 blur-sm" />}
       </div>
       <div className="relative mx-auto h-[14px] w-[112%] -translate-x-[5.4%] rounded-b-[65%] border-t border-white/30 bg-gradient-to-b from-[#999] via-[#414141] to-[#111] shadow-[0_20px_28px_rgba(0,0,0,.8)]">
         <span className="absolute left-1/2 top-0 h-[3px] w-[15%] -translate-x-1/2 rounded-b-full bg-[#282828]" />
@@ -69,18 +70,18 @@ function MacBook() {
   );
 }
 
-function OpticalStage() {
+function OpticalStage({ simplifyMotion }: { simplifyMotion: boolean }) {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[700px]">
-      <motion.div initial={{ opacity: 0, scale: .75 }} animate={{ opacity: 1, scale: [1, 1.05, 1] }} transition={{ opacity: { duration: 1.5 }, scale: { duration: 11, repeat: Infinity, ease: "easeInOut" } }} className="absolute inset-[12%] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,.2),rgba(0,217,255,.055)_34%,transparent_70%)] blur-[35px]" />
+      <motion.div initial={{ opacity: 0, scale: .75 }} animate={simplifyMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: [1, 1.05, 1] }} transition={{ opacity: { duration: .6 }, scale: { duration: 11, repeat: Infinity, ease: "easeInOut" } }} className="absolute inset-[12%] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,.2),rgba(0,217,255,.055)_34%,transparent_70%)] blur-[35px]" />
       <div className="absolute inset-[1%] rounded-full border border-white/[.035]" />
-      <motion.div animate={{ rotate: 360 }} transition={{ duration: 52, repeat: Infinity, ease: "linear" }} className="absolute inset-[6%] rounded-full border border-dashed border-accent/[.16] shadow-[inset_0_0_60px_rgba(0,217,255,.025)]">
+      <motion.div animate={simplifyMotion ? undefined : { rotate: 360 }} transition={{ duration: 52, repeat: Infinity, ease: "linear" }} className="absolute inset-[6%] rounded-full border border-dashed border-accent/[.16] shadow-[inset_0_0_60px_rgba(0,217,255,.025)]">
         <span className="absolute left-1/2 top-[-2px] h-1 w-10 -translate-x-1/2 rounded-full bg-accent/65 shadow-[0_0_12px_rgba(0,217,255,.6)] blur-[.5px]" />
       </motion.div>
-      <motion.div animate={{ rotate: -360 }} transition={{ duration: 76, repeat: Infinity, ease: "linear" }} className="absolute inset-[14%] rounded-full border border-white/[.075]">
+      <motion.div animate={simplifyMotion ? undefined : { rotate: -360 }} transition={{ duration: 76, repeat: Infinity, ease: "linear" }} className="absolute inset-[14%] rounded-full border border-white/[.075]">
         <span className="absolute bottom-[13%] right-[3%] h-px w-12 rotate-45 bg-gradient-to-r from-transparent to-electric/70" />
       </motion.div>
-      <motion.div animate={{ rotate: 360, scaleX: [1, .96, 1] }} transition={{ rotate: { duration: 110, repeat: Infinity, ease: "linear" }, scaleX: { duration: 12, repeat: Infinity, ease: "easeInOut" } }} className="absolute inset-x-[12%] bottom-[17%] h-[25%] rounded-[50%] border border-accent/20 shadow-[0_0_30px_rgba(0,217,255,.08),inset_0_0_24px_rgba(122,92,255,.06)]" />
+      <motion.div animate={simplifyMotion ? undefined : { rotate: 360, scaleX: [1, .96, 1] }} transition={{ rotate: { duration: 110, repeat: Infinity, ease: "linear" }, scaleX: { duration: 12, repeat: Infinity, ease: "easeInOut" } }} className="absolute inset-x-[12%] bottom-[17%] h-[25%] rounded-[50%] border border-accent/20 shadow-[0_0_30px_rgba(0,217,255,.08),inset_0_0_24px_rgba(122,92,255,.06)]" />
       <div className="absolute inset-[24%] rounded-full border border-white/[.045] before:absolute before:left-1/2 before:top-[-7px] before:h-[14px] before:w-px before:bg-accent/45 after:absolute after:bottom-[-7px] after:left-1/2 after:h-[14px] after:w-px after:bg-accent/30" />
       <div className="absolute right-[6%] top-[31%] h-px w-[18%] bg-gradient-to-r from-accent/50 to-transparent"><span className="absolute -top-3 right-0 text-[6px] tracking-[.2em] text-accent/40">X 2035.01</span></div>
       <div className="absolute bottom-[29%] left-[5%] h-[12%] w-px bg-gradient-to-b from-transparent via-electric/45 to-transparent"><span className="absolute -left-3 -top-4 text-[6px] tracking-[.18em] text-white/25">Y 042</span></div>
@@ -90,7 +91,7 @@ function OpticalStage() {
       <div className="absolute left-[5%] top-[22%] rounded-full border border-white/[.08] bg-black/20 px-3 py-2 text-[7px] uppercase tracking-[.25em] text-white/35 backdrop-blur-md">Optical system / 01</div>
       <div className="absolute bottom-[15%] right-[4%] flex items-center gap-2 text-[7px] uppercase tracking-[.22em] text-accent/60"><span className="size-1 rounded-full bg-accent shadow-[0_0_9px_#00d9ff]" />Signal stable</div>
       <div className="absolute inset-x-[-4%] top-[25%]">
-        <MacBook />
+        <MacBook simplifyMotion={simplifyMotion} />
       </div>
       <div className="absolute inset-x-[12%] bottom-[9%] z-10 h-[11%] rounded-[50%] border border-accent/25 bg-[radial-gradient(ellipse,rgba(0,217,255,.14),rgba(16,19,26,.85)_54%,rgba(6,7,10,.95)_72%)] shadow-[0_0_45px_rgba(0,217,255,.16),inset_0_1px_0_rgba(66,245,255,.3)]">
         <div className="absolute inset-x-[16%] top-1/2 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
@@ -101,6 +102,7 @@ function OpticalStage() {
 }
 
 export function Hero() {
+  const simplifyMotion = useMobilePerformance();
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
   const smoothX = useSpring(pointerX, { stiffness: 30, damping: 28 });
@@ -118,26 +120,27 @@ export function Hero() {
   const stageY = useTransform(scrollY, [0, 900], [0, 110]);
 
   useEffect(() => {
+    if (simplifyMotion || !window.matchMedia("(pointer: fine)").matches) return;
     const move = (event: PointerEvent) => {
       pointerX.set((event.clientX / window.innerWidth - .5) * 34);
       pointerY.set((event.clientY / window.innerHeight - .5) * 28);
     };
     window.addEventListener("pointermove", move, { passive: true });
     return () => window.removeEventListener("pointermove", move);
-  }, [pointerX, pointerY]);
+  }, [pointerX, pointerY, simplifyMotion]);
 
   return (
     <section id="accueil" className="relative flex min-h-[100svh] items-center overflow-hidden pb-8 pt-24 sm:pb-12 sm:pt-28 lg:pb-20 lg:pt-32">
-      <motion.div style={{ x: backgroundX, y: backgroundY }} className="pointer-events-none absolute -inset-2 bg-[radial-gradient(ellipse_50%_55%_at_86%_46%,rgba(0,217,255,.13),transparent_68%),radial-gradient(ellipse_35%_45%_at_8%_52%,rgba(122,92,255,.06),transparent_75%),linear-gradient(125deg,#06070a_18%,#10131a_58%,#06070a)] will-change-transform" />
+      <motion.div style={{ x: backgroundX, y: backgroundY }} className="pointer-events-none absolute -inset-2 bg-[radial-gradient(ellipse_50%_55%_at_86%_46%,rgba(0,217,255,.13),transparent_68%),radial-gradient(ellipse_42%_52%_at_10%_48%,rgba(122,92,255,.105),transparent_72%),linear-gradient(125deg,#06070a_18%,#111320_58%,#06070a)] will-change-transform" />
       <motion.div style={{ x: haloX, y: haloY }} className="pointer-events-none absolute -right-[calc(8%+150px)] top-[5%] size-[64vw] will-change-transform">
         <div className="absolute inset-[4%] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,.1),transparent_64%)] blur-2xl" />
         <div className="absolute inset-[18%] translate-x-[8%] rounded-full bg-[radial-gradient(circle,rgba(66,245,255,.08),transparent_62%)] blur-[50px]" />
-        <div className="absolute inset-[24%] -translate-y-[8%] translate-x-[18%] rounded-full bg-[radial-gradient(circle,rgba(122,92,255,.085),transparent_64%)] blur-[65px]" />
+        <div className="absolute inset-[24%] -translate-y-[8%] translate-x-[18%] rounded-full bg-[radial-gradient(circle,rgba(122,92,255,.14),transparent_64%)] blur-[65px]" />
       </motion.div>
       <div className="pointer-events-none absolute left-[60%] top-[46%] z-[5] hidden aspect-[3/2] w-[clamp(900px,97vw,1590px)] -translate-x-1/2 -translate-y-1/2 md:block lg:left-[73%]">
         <motion.div style={{ x: logoX, y: logoY }} animate={{ scale: [1, 1.018, 1], opacity: [.88, 1, .88] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} className="relative size-full will-change-transform">
           <div className="absolute inset-[12%] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,.13),rgba(122,92,255,.06)_42%,transparent_72%)] blur-[70px]" />
-          <Image src="/logo.png" alt="" fill priority quality={100} sizes="(max-width: 1024px) 72vw, 1180px" className="object-contain opacity-[.12] mix-blend-screen drop-shadow-[0_0_42px_rgba(0,217,255,.14)]" />
+          <Image src="/logo.png" alt="" fill loading="lazy" quality={70} sizes="(max-width: 1024px) 72vw, 1180px" className="object-contain opacity-[.12] mix-blend-screen drop-shadow-[0_0_42px_rgba(0,217,255,.14)]" />
         </motion.div>
       </div>
       <div className="particles pointer-events-none absolute inset-0 opacity-30" />
@@ -149,7 +152,7 @@ export function Hero() {
         <motion.div style={{ x: textX }} initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease: "easeOut" }} className="relative z-30 py-10 will-change-transform">
           <div className="mb-7 flex items-center gap-4"><span className="size-1.5 rounded-full bg-accent shadow-[0_0_15px_#00d9ff]" /><span className="eyebrow">Independent digital atelier — France</span></div>
           <h1 className="display max-w-[740px] text-[clamp(45px,6vw,91px)] font-medium leading-[.82] tracking-[-.058em] text-paper">
-            Le digital,<br /><span className="bg-gradient-to-r from-accent via-[#42f5ff] to-electric bg-clip-text text-transparent">en avance</span><br />sur son temps.
+            Le digital,<br /><span className="bg-gradient-to-r from-accent via-[#42f5ff] via-[58%] to-[#8b6cff] bg-clip-text text-transparent drop-shadow-[0_0_26px_rgba(122,92,255,.12)]">en avance</span><br />sur son temps.
           </h1>
           <p className="mt-7 max-w-[620px] text-[15px] leading-7 text-muted sm:text-[17px] sm:leading-8">Nous concevons des identités et des expériences digitales haute précision — pensées pour captiver aujourd’hui et rester pertinentes demain.</p>
           <div className="mt-11 flex flex-col gap-3 sm:flex-row"><Button href="#concepts">Explorer nos créations</Button><Button href="#contact" variant="secondary">Initier un projet</Button></div>
@@ -157,7 +160,7 @@ export function Hero() {
         </motion.div>
         <motion.div style={{ y: stageY }} className="relative z-10 h-[250px] sm:h-[410px] lg:h-auto">
           <div className="origin-top scale-[.72] sm:scale-[.88] lg:scale-100">
-            <motion.div style={{ x: macX, y: macY }} className="will-change-transform"><OpticalStage /></motion.div>
+            <motion.div style={{ x: macX, y: macY }} className="will-change-transform"><OpticalStage simplifyMotion={simplifyMotion} /></motion.div>
           </div>
         </motion.div>
       </div>
