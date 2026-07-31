@@ -437,6 +437,12 @@ button, a { outline-offset: 4px; }
 @media (max-width: 767px) {
   body { animation: none; }
   body::before { position: absolute; opacity: .3; }
+  [data-reveal],
+  [data-animate] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
   .mrd-signature,
   .particles { display: none; }
   /* Filtered descendants inside animated transforms can escape clipping on

@@ -158,7 +158,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
 
       <div className="container-wide relative grid items-center gap-6 lg:grid-cols-[1.02fr_.98fr]">
-        <motion.div style={{ x: textX }} initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease: "easeOut" }} className="relative z-30 py-10 will-change-transform">
+        <motion.div data-animate style={{ x: textX }} initial={false} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: .7, ease: "easeOut" }} className="relative z-30 py-10 will-change-transform">
           <div className="mb-7 flex items-center gap-4"><span className="size-1.5 rounded-full bg-accent shadow-[0_0_15px_#00d9ff]" /><span className="eyebrow">Independent digital atelier — France</span></div>
           <h1 className="display max-w-[740px] text-[clamp(45px,6vw,91px)] font-medium leading-[.82] tracking-[-.058em] text-paper">
             Le digital,<br /><span className="bg-gradient-to-r from-accent via-[#42f5ff] via-[58%] to-[#8b6cff] bg-clip-text text-transparent drop-shadow-[0_0_26px_rgba(122,92,255,.12)]">en avance</span><br />sur son temps.
