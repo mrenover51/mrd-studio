@@ -40,20 +40,33 @@ export function readConsent(now = new Date()): StoredConsent | null {
       || Number.isNaN(Date.parse(value.expiresAt))
       || new Date(value.expiresAt) <= now
     ) {
-      window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+      clearConsent();
       return null;
     }
     return value as StoredConsent;
   } catch {
-    window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+    // localStorage can be unavailable even when `window` exists (notably in
+    // private browsing or when storage is disabled). Consent UI must remain usable.
+    clearConsent();
     return null;
   }
 }
 
-export function writeConsent(consent: StoredConsent) {
-  window.localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));
+export function writeConsent(consent: StoredConsent): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    window.localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function clearConsent() {
-  if (typeof window !== "undefined") window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+  } catch {
+    // Storage access is optional; clearing consent must never break the UI.
+  }
 }

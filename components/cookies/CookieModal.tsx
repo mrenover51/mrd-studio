@@ -59,7 +59,6 @@ export function CookieModal() {
       className="fixed inset-0 z-[100] grid place-items-center bg-black/55 p-3 backdrop-blur-sm sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
       transition={{ duration: .35, ease: "easeInOut" }}
       onMouseDown={event => {
         if (event.target === event.currentTarget) closePreferences();
@@ -73,7 +72,6 @@ export function CookieModal() {
         aria-describedby="cookie-modal-description"
         initial={{ opacity: 0, y: 24, scale: .98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 12, scale: .985 }}
         transition={{ duration: .5, ease: [0.22, 1, 0.36, 1] }}
         className="relative max-h-[calc(100dvh-24px)] w-full max-w-[720px] overflow-y-auto rounded-[24px] border border-white/[.09] bg-[rgba(10,12,18,.96)] p-5 shadow-[0_35px_120px_rgba(0,0,0,.75),inset_0_1px_0_rgba(255,255,255,.06),0_0_70px_rgba(0,217,255,.04)] sm:max-h-[calc(100dvh-48px)] sm:p-8"
       >

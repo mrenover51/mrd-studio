@@ -85,7 +85,9 @@ export function CookieProvider({ children }: { children: React.ReactNode }) {
     <ConsentContext.Provider value={value}>
       {children}
       <AnimatePresence>{isReady && !consent && !isModalOpen && <CookieBanner />}</AnimatePresence>
-      <AnimatePresence>{isModalOpen && <CookieModal />}</AnimatePresence>
+      {/* Unmount the blocking layer synchronously. An exit animation keeps its
+          backdrop-filter, pointer capture and body scroll lock alive after close. */}
+      {isModalOpen && <CookieModal />}
       {isReady && consent?.preferences.analytics && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
       {isReady && consent?.preferences.clarity && (
         <Script id="microsoft-clarity" strategy="afterInteractive" onLoad={grantClarityConsent}>
