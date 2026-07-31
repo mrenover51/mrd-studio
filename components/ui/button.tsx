@@ -13,6 +13,7 @@ type Props = {
 
 export function Button({ href, children, variant = "primary", className }: Props) {
   const trackLight = (event: PointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType !== "mouse") return;
     const rect = event.currentTarget.getBoundingClientRect();
     event.currentTarget.style.setProperty("--button-x", `${event.clientX - rect.left}px`);
     event.currentTarget.style.setProperty("--button-y", `${event.clientY - rect.top}px`);
@@ -40,7 +41,7 @@ export function Button({ href, children, variant = "primary", className }: Props
     >
       <span aria-hidden className="button-sheen" />
       <span className="relative z-10">{children}</span>
-      <ArrowUpRight size={15} className="relative z-10 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      <ArrowUpRight size={15} className="relative z-10 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
     </a>
   );
 }

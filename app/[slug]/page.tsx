@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: canonical,
         locale: "fr_FR",
         type: "website",
-        images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }],
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }],
       },
       twitter: {
         card: "summary_large_image",
         title: service.title,
         description: service.metaDescription,
-        images: ["/logo.png"],
+        images: ["/og-image.jpg"],
       },
     };
   }
@@ -70,8 +70,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical,
       languages: { "fr-FR": canonical, "x-default": canonical },
     },
-    openGraph: { title, description, url: canonical, locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-    twitter: { card: "summary_large_image", title, description, images: ["/logo.png"] },
+    openGraph: { title, description, url: canonical, locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-image.jpg"] },
   };
 }
 

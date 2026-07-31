@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: "Conseils création de site et SEO local",
   description: "Guides MRD Studio sur la création de sites internet, le référencement Google, le SEO local et la stratégie digitale dans le Grand Est.",
   alternates: { canonical: "/blog", languages: { "fr-FR": "/blog", "x-default": "/blog" } },
-  openGraph: { title: "Le journal MRD Studio", description: "Conseils concrets pour construire une présence digitale visible et performante.", url: "/blog", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Le journal MRD Studio", description: "Conseils concrets sur la création de site, le SEO et la visibilité locale.", images: ["/logo.png"] },
+  openGraph: { title: "Le journal MRD Studio", description: "Conseils concrets pour construire une présence digitale visible et performante.", url: "/blog", locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Le journal MRD Studio", description: "Conseils concrets sur la création de site, le SEO et la visibilité locale.", images: ["/og-image.jpg"] },
 };
 
 export default function BlogPage() {

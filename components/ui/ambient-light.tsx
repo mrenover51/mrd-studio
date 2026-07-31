@@ -24,19 +24,9 @@ export function AmbientLight() {
       <motion.div
         className="absolute left-0 top-0 size-[700px] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,.075),transparent_68%)] blur-md will-change-transform"
         style={{ x: smoothX, y: smoothY }}
-        animate={{ scale: [1, 1.09, 1], opacity: [.65, 1, .65] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
-      <motion.div
-        className="absolute -right-[18vw] top-[28vh] size-[58vw] rounded-full bg-[radial-gradient(circle,rgba(122,92,255,.05),transparent_67%)] blur-2xl"
-        animate={{ x: [0, -45, 0], y: [0, 28, 0], scale: [1, 1.12, 1] }}
-        transition={{ duration: 29, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -left-[16vw] bottom-[-30vw] size-[52vw] rounded-full border border-accent/[.035]"
-        animate={{ scale: [1, 1.08, 1], opacity: [.35, .7, .35] }}
-        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-      />
+      <div className="absolute -right-[22vw] top-[18vh] size-[66vw] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,.065),rgba(79,70,229,.025)_42%,transparent_70%)]" />
+      <div className="absolute -left-[24vw] bottom-[-34vw] size-[62vw] rounded-full bg-[radial-gradient(circle,rgba(0,229,255,.035),transparent_69%)]" />
     </div>
   );
 }

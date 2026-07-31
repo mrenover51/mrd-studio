@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "Politique relative aux cookies",
   description: "Cookies utilisés par MRD Studio, finalités, durées et procédure pour accepter, refuser ou modifier vos préférences.",
   alternates: { canonical: "/politique-cookies", languages: { "fr-FR": "/politique-cookies", "x-default": "/politique-cookies" } },
-  openGraph: { title: "Politique relative aux cookies", description: "Traceurs utilisés, finalités et gestion de vos préférences sur MRD Studio.", url: "/politique-cookies", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Politique relative aux cookies", description: "Comprendre et gérer les traceurs du site MRD Studio.", images: ["/logo.png"] },
+  openGraph: { title: "Politique relative aux cookies", description: "Traceurs utilisés, finalités et gestion de vos préférences sur MRD Studio.", url: "/politique-cookies", locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Politique relative aux cookies", description: "Comprendre et gérer les traceurs du site MRD Studio.", images: ["/og-image.jpg"] },
 };
 
 const sections: LegalSection[] = [

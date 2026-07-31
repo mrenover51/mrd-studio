@@ -73,7 +73,7 @@ export function CookieModal() {
         initial={{ opacity: 0, y: 24, scale: .98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: .5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative max-h-[calc(100dvh-24px)] w-full max-w-[720px] overflow-y-auto rounded-[24px] border border-white/[.09] bg-[rgba(10,12,18,.96)] p-5 shadow-[0_35px_120px_rgba(0,0,0,.75),inset_0_1px_0_rgba(255,255,255,.06),0_0_70px_rgba(0,217,255,.04)] sm:max-h-[calc(100dvh-48px)] sm:p-8"
+        className="relative max-h-[calc(100dvh-24px)] w-full max-w-[720px] overflow-y-auto rounded-[24px] border border-white/[.09] bg-[rgba(13,16,24,.96)] p-5 shadow-[0_28px_80px_rgba(0,0,0,.58),inset_0_1px_0_rgba(255,255,255,.06),0_0_38px_rgba(139,92,246,.04)] sm:max-h-[calc(100dvh-48px)] sm:p-8"
       >
         <div className="pointer-events-none absolute inset-x-[12%] top-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
         <button type="button" onClick={closePreferences} aria-label="Fermer les préférences" className="absolute right-5 top-5 grid size-9 place-items-center rounded-full border border-white/10 text-muted transition-all duration-500 hover:border-accent/35 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:right-7 sm:top-7"><X size={15} /></button>

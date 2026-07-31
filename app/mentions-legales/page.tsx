@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Mentions légales du site MRD Studio : éditeur, publication, hébergement, propriété intellectuelle et contact.",
   alternates: { canonical: "/mentions-legales", languages: { "fr-FR": "/mentions-legales", "x-default": "/mentions-legales" } },
-  openGraph: { title: "Mentions légales", description: "Informations relatives à l’éditeur, à l’hébergement et à l’utilisation du site MRD Studio.", url: "/mentions-legales", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Mentions légales", description: "Informations légales du site MRD Studio.", images: ["/logo.png"] },
+  openGraph: { title: "Mentions légales", description: "Informations relatives à l’éditeur, à l’hébergement et à l’utilisation du site MRD Studio.", url: "/mentions-legales", locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Mentions légales", description: "Informations légales du site MRD Studio.", images: ["/og-image.jpg"] },
 };
 
 const sections: LegalSection[] = [

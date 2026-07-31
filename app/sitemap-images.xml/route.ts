@@ -10,7 +10,7 @@ export function GET() {
 ${pages.map(url => `  <url>
     <loc>${url}</loc>
     <image:image>
-      <image:loc>https://mrdstudio.fr/logo.png</image:loc>
+      <image:loc>https://mrdstudio.fr/og-image.jpg</image:loc>
       <image:title>MRD Studio — création de sites internet premium</image:title>
       <image:caption>Identité visuelle de MRD Studio, studio digital basé à Avize.</image:caption>
     </image:image>

@@ -26,7 +26,7 @@ export function BlogArticle({ slug, title, description }: { slug: string; title:
   const related = blogArticles.filter(item => item[0] !== slug).slice(0, 3);
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: title, description, datePublished: "2026-07-27", dateModified: "2026-07-28", author: { "@type": "Organization", name: "MRD Studio", url: "https://mrdstudio.fr" }, publisher: { "@id": "https://mrdstudio.fr/#business" }, mainEntityOfPage: `https://mrdstudio.fr/blog/${slug}`, image: { "@type": "ImageObject", url: "https://mrdstudio.fr/logo.png", width: 1536, height: 1024 }, inLanguage: "fr-FR" }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: title, description, datePublished: "2026-07-27", dateModified: "2026-07-28", author: { "@type": "Organization", name: "MRD Studio", url: "https://mrdstudio.fr" }, publisher: { "@id": "https://mrdstudio.fr/#business" }, mainEntityOfPage: `https://mrdstudio.fr/blog/${slug}`, image: { "@type": "ImageObject", url: "https://mrdstudio.fr/og-image.jpg", width: 1200, height: 630 }, inLanguage: "fr-FR" }} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Accueil", item: "https://mrdstudio.fr" }, { "@type": "ListItem", position: 2, name: "Blog", item: "https://mrdstudio.fr/blog" }, { "@type": "ListItem", position: 3, name: title, item: `https://mrdstudio.fr/blog/${slug}` }] }} />
       <Header />
       <main id="contenu-principal">

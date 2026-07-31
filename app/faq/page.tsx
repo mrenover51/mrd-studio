@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     url: "/faq",
     locale: "fr_FR",
     type: "website",
-    images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "FAQ — Création de site internet et SEO",
     description: "30 réponses transparentes sur la création de site, le SEO et l’accompagnement.",
-    images: ["/logo.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

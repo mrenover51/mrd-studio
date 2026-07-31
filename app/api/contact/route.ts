@@ -41,6 +41,10 @@ export async function POST(request: Request) {
     if (declaredLength > MAX_BODY_BYTES) {
       return NextResponse.json({ message: "La requête est trop volumineuse." }, { status: 413 });
     }
+    const rawBody = await request.text();
+    if (new TextEncoder().encode(rawBody).byteLength > MAX_BODY_BYTES) {
+      return NextResponse.json({ message: "La requête est trop volumineuse." }, { status: 413 });
+    }
     const clientKey = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (isRateLimited(clientKey)) {
       return NextResponse.json(
@@ -49,7 +53,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = contactSchema.safeParse(await request.json());
+    let payload: unknown;
+    try {
+      payload = JSON.parse(rawBody);
+    } catch {
+      return NextResponse.json({ message: "Le corps de la requête est invalide." }, { status: 400 });
+    }
+    const result = contactSchema.safeParse(payload);
     if (!result.success) {
       return NextResponse.json({ message: "Certaines informations sont invalides." }, { status: 400 });
     }

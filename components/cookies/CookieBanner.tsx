@@ -11,11 +11,11 @@ export function CookieBanner() {
       role="dialog"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-description"
-      initial={{ opacity: 0, y: 28, filter: "blur(8px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: 16, filter: "blur(5px)" }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 12 }}
       transition={{ duration: .55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-3 bottom-3 z-[90] mx-auto w-auto max-w-[680px] overflow-hidden rounded-[24px] border border-white/[.08] bg-[rgba(10,12,18,.82)] p-5 shadow-[0_24px_90px_rgba(0,0,0,.62),inset_0_1px_0_rgba(255,255,255,.055),0_0_45px_rgba(0,217,255,.035)] backdrop-blur-[20px] sm:bottom-5 sm:p-7"
+      className="fixed inset-x-3 bottom-3 z-[90] mx-auto w-auto max-w-[680px] overflow-hidden rounded-[24px] border border-white/[.09] bg-[rgba(13,16,24,.86)] p-5 shadow-[0_22px_64px_rgba(0,0,0,.48),inset_0_1px_0_rgba(255,255,255,.06),0_0_30px_rgba(139,92,246,.035)] backdrop-blur-[14px] sm:bottom-5 sm:p-7"
     >
       <div className="pointer-events-none absolute inset-x-[12%] top-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
       <div className="relative">

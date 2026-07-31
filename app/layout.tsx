@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   icons: {
     icon: [{ url: "/favicon.ico" }],
-    apple: [{ url: "/logo.png", sizes: "1536x1024", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
   alternates: {
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
     siteName: "MRD Studio",
     locale: "fr_FR",
     type: "website",
-    images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "MRD Studio — Sites internet sur mesure",
     description: "Design, développement, performance et référencement réunis dans une expérience digitale sur mesure.",
-    images: ["/logo.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

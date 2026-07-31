@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description: "Politique de confidentialité de MRD Studio : données collectées, finalités, conservation, destinataires et exercice de vos droits.",
   alternates: { canonical: "/politique-de-confidentialite", languages: { "fr-FR": "/politique-de-confidentialite", "x-default": "/politique-de-confidentialite" } },
-  openGraph: { title: "Politique de confidentialité", description: "Données traitées, finalités, conservation et exercice de vos droits auprès de MRD Studio.", url: "/politique-de-confidentialite", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Politique de confidentialité", description: "La politique de protection des données de MRD Studio.", images: ["/logo.png"] },
+  openGraph: { title: "Politique de confidentialité", description: "Données traitées, finalités, conservation et exercice de vos droits auprès de MRD Studio.", url: "/politique-de-confidentialite", locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Politique de confidentialité", description: "La politique de protection des données de MRD Studio.", images: ["/og-image.jpg"] },
   robots: { index: true, follow: true },
 };
 

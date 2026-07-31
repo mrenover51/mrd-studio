@@ -12,7 +12,7 @@ type Props = {
 
 export function CookieCategory({ id, title, service, description, checked, disabled, onChange }: Props) {
   return (
-    <div className="rounded-[20px] border border-white/[.08] bg-white/[.025] p-5 transition-colors duration-500 hover:border-accent/20 sm:p-6">
+    <div className="rounded-[18px] border border-white/[.08] bg-white/[.025] p-5 transition-colors duration-300 hover:border-accent/20 sm:p-6">
       <div className="flex items-start justify-between gap-5">
         <div>
           <label htmlFor={id} className="block cursor-pointer text-sm font-medium text-paper">{title}</label>

@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "Contact — Parlons de votre projet",
   description: "Contactez MRD Studio pour votre site internet premium, votre stratégie digitale, votre identité visuelle ou votre référencement.",
   alternates: { canonical: "/contact", languages: { "fr-FR": "/contact", "x-default": "/contact" } },
-  openGraph: { title: "Parlons de votre projet | MRD Studio", description: "Chaque grand projet commence par une conversation. Présentez-nous votre ambition.", url: "/contact", locale: "fr_FR", type: "website", images: [{ url: "/logo.png", width: 1536, height: 1024, alt: "MRD Studio" }] },
-  twitter: { card: "summary_large_image", title: "Parlons de votre projet | MRD Studio", description: "Présentez-nous votre projet digital. MRD Studio vous répond sous 24 heures.", images: ["/logo.png"] },
+  openGraph: { title: "Parlons de votre projet | MRD Studio", description: "Chaque grand projet commence par une conversation. Présentez-nous votre ambition.", url: "/contact", locale: "fr_FR", type: "website", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MRD Studio" }] },
+  twitter: { card: "summary_large_image", title: "Parlons de votre projet | MRD Studio", description: "Présentez-nous votre projet digital. MRD Studio vous répond sous 24 heures.", images: ["/og-image.jpg"] },
 };
 
 const benefits = ["Création de sites internet premium", "SEO optimisé", "Responsive sur tous les appareils", "Accompagnement personnalisé", "Développement sur mesure", "Hébergement & maintenance", "Réponse sous 24 h", "Premier échange gratuit"];

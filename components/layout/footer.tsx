@@ -48,7 +48,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-wide relative flex flex-col gap-3 border-t border-white/[.07] py-6 text-[9px] uppercase tracking-[.14em] text-white/30 sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-wide relative flex flex-col gap-3 border-t border-white/[.07] py-6 text-[9px] uppercase tracking-[.14em] text-white/50 sm:flex-row sm:items-center sm:justify-between">
         <span>© 2026 MRD Studio — Tous droits réservés.</span>
         <span>Créé avec passion <span className="mx-1.5 text-accent/55">•</span> Développé avec précision</span>
       </div>
