@@ -439,7 +439,9 @@ button, a { outline-offset: 4px; }
   body::before { position: absolute; opacity: .3; }
   .mrd-signature,
   .particles { display: none; }
-  #accueil [class*="blur-"] { filter: blur(18px) !important; }
+  /* Filtered descendants inside animated transforms can escape clipping on
+     mobile compositors. Radial gradients keep the glow without a filter layer. */
+  #accueil .hero-glow { filter: none !important; }
   #accueil > [class*="absolute"][class*="size-[64vw]"] { opacity: .65; }
   #accueil [class*="drop-shadow"] { filter: none; }
   .section-pad {
