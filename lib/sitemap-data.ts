@@ -2,13 +2,17 @@ import { cityProfiles, departments } from "@/lib/seo-local-data";
 import { serviceProfiles } from "@/lib/service-data";
 
 export const SITE_URL = "https://mrdstudio.fr";
-export const SEO_LAST_MODIFIED = "2026-07-28";
+export const SEO_LAST_MODIFIED = "2026-08-14";
 
 export const pageUrls = [
   "",
   "/contact",
   "/blog",
   "/faq",
+  "/realisations",
+  "/realisations/mrenover",
+  "/realisations/love-room-absolu",
+  "/realisations/decapage-france",
   "/politique-de-confidentialite",
   "/politique-cookies",
   "/mentions-legales",

@@ -11,7 +11,7 @@ const links = [
   ["Accueil", "/#accueil"],
   ["Philosophie", "/#philosophie"],
   ["Méthode", "/#methode"],
-  ["Concepts", "/#concepts"],
+  ["Réalisations", "/realisations"],
   ["Contact", "/contact"],
 ];
 

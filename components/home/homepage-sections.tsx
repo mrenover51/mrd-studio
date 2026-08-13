@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowUpRight,
   Check,
   Code2,
   Gauge,
@@ -14,6 +13,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { ProjectShowcase } from "@/components/realisations/project-showcase";
+import { projects } from "@/lib/realisations-data";
 
 const trustSignals = [
   [Zap, "Sites ultra performants"],
@@ -110,42 +111,15 @@ export function Commitment() {
   );
 }
 
-const projects = [
-  { sector: "Domaine viticole", title: "Terroir / Transmission", technologies: "Next.js • SEO local", objective: "Valoriser le domaine et faciliter la prise de contact.", result: "Une présence digitale distinctive, rapide et crédible.", gradient: "from-[#161018] via-[#481d3b] to-[#090b12]" },
-  { sector: "Restaurant", title: "Cuisine / Expérience", technologies: "Next.js • Responsive", objective: "Transmettre l’expérience avant même la réservation.", result: "Un parcours immersif pensé pour convertir sur mobile.", gradient: "from-[#07151a] via-[#0d4050] to-[#070912]" },
-  { sector: "Artisan", title: "Savoir-faire / Matière", technologies: "Next.js • Performance", objective: "Rendre la qualité du travail immédiatement visible.", result: "Une vitrine claire qui transforme l’expertise en confiance.", gradient: "from-[#141218] via-[#303449] to-[#090a0e]" },
-  { sector: "Commerce", title: "Produit / Conversion", technologies: "Next.js • UX", objective: "Présenter l’offre et simplifier le passage à l’action.", result: "Une interface contemporaine centrée sur la conversion.", gradient: "from-[#101025] via-[#2f2475] to-[#070912]" },
-] as const;
-
 export function Portfolio() {
   return (
     <section id="concepts" className="section-pad">
       <div className="container-wide">
         <Reveal className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
-          <div><p className="eyebrow mb-6">Portfolio</p><h2 className="display text-5xl leading-[.95] tracking-[-.05em] sm:text-7xl">Des projets pensés<br /><span className="text-accent">pour produire un résultat.</span></h2></div>
-          <p className="max-w-sm text-sm leading-7 text-muted">Chaque direction relie un objectif, une technologie et une expérience utilisateur cohérente.</p>
+          <div><p className="eyebrow mb-6">Réalisations</p><h2 className="display text-5xl leading-[.95] tracking-[-.05em] sm:text-7xl">Des projets conçus<br /><span className="text-accent">pour des usages réels.</span></h2></div>
+          <p className="max-w-sm text-sm leading-7 text-muted">Chaque réalisation répond à un contexte métier précis avec une expérience claire, singulière et utile.</p>
         </Reveal>
-        <div className="mt-12 grid gap-5 sm:mt-16 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Reveal key={project.sector} delay={index * .05}>
-              <article className="premium-card group p-3">
-                <div className={`relative min-h-[470px] overflow-hidden rounded-[18px] bg-gradient-to-br ${project.gradient} p-7 sm:p-10`}>
-                  <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] [background-size:48px_48px]" />
-                  <div className="relative flex h-full min-h-[390px] flex-col">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-5 text-[8px] uppercase tracking-[.2em] text-white/55"><span>{project.sector}</span><span>0{index + 1}</span></div>
-                    <h3 className="display mt-9 text-4xl leading-none tracking-[-.045em] sm:text-5xl">{project.title}</h3>
-                    <dl className="mt-auto grid gap-5 pt-16 text-xs leading-6 sm:grid-cols-2">
-                      <div><dt className="text-[8px] uppercase tracking-[.18em] text-accent">Technologies</dt><dd className="mt-2 text-white/70">{project.technologies}</dd></div>
-                      <div><dt className="text-[8px] uppercase tracking-[.18em] text-electric">Objectif</dt><dd className="mt-2 text-white/70">{project.objective}</dd></div>
-                      <div className="sm:col-span-2"><dt className="text-[8px] uppercase tracking-[.18em] text-white/45">Résultat</dt><dd className="mt-2 text-white/80">{project.result}</dd></div>
-                    </dl>
-                    <a href="#contact" className="mt-8 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.16em] text-paper transition-colors duration-500 hover:text-accent">Voir le projet <ArrowUpRight size={14} /></a>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <ProjectShowcase projects={projects} />
       </div>
     </section>
   );
