@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: Props) {
         <section className="pb-24 sm:pb-32">
           <div className="container-wide">
             <Reveal className="overflow-hidden rounded-[24px] border border-white/[.1] bg-[#0b0e15] p-2 shadow-[0_30px_90px_rgba(0,0,0,.42)] sm:p-3">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-[17px] bg-[#080a0f]"><Image src={project.image} alt={project.imageAlt} fill priority sizes="(max-width: 1280px) calc(100vw - 40px), 1280px" className="object-cover object-top" /></div>
+              <div className="relative overflow-hidden rounded-[17px] bg-[#080a0f]"><Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} quality={90} sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 64px), 1280px" className="h-auto w-full object-contain object-top" /></div>
             </Reveal>
           </div>
         </section>

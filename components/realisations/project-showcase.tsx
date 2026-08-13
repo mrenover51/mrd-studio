@@ -20,13 +20,15 @@ export function ProjectShowcase({ projects }: { projects: readonly Project[] }) 
                     <span className="size-1.5 rounded-full bg-electric/45" />
                     <span className="ml-2 truncate text-[7px] tracking-[.08em] text-white/25">{project.url.replace("https://www.", "")}</span>
                   </div>
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-b-[14px] bg-[#080a0f]">
+                  <div className="relative overflow-hidden rounded-b-[14px] bg-[#080a0f]">
                     <Image
                       src={project.image}
                       alt={project.imageAlt}
-                      fill
-                      sizes="(max-width: 1023px) calc(100vw - 56px), 56vw"
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                      width={project.imageWidth}
+                      height={project.imageHeight}
+                      quality={85}
+                      sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(100vw - 64px), (max-width: 1535px) 55vw, 820px"
+                      className="h-auto w-full object-contain object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
                     />
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[.035]" />
                   </div>

@@ -6,12 +6,11 @@ export type Project = {
   activity: string;
   positioning: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   imageAlt: string;
   technologies: readonly string[];
 };
-
-const screenshot = (url: string) =>
-  `https://s0.wp.com/mshots/v1/${encodeURIComponent(url)}?w=1600`;
 
 export const projects: readonly Project[] = [
   {
@@ -21,7 +20,9 @@ export const projects: readonly Project[] = [
     category: "Site vitrine premium",
     activity: "Rénovation intérieure & décapage laser",
     positioning: "Site professionnel destiné à présenter clairement deux activités complémentaires, valoriser le savoir-faire de l’entreprise et générer des demandes de devis.",
-    image: screenshot("https://www.mrenover.fr/"),
+    image: "/images/realisations/mrenover.png",
+    imageWidth: 1896,
+    imageHeight: 900,
     imageAlt: "Aperçu du site MRÉNOVER",
     technologies: [],
   },
@@ -32,7 +33,9 @@ export const projects: readonly Project[] = [
     category: "Site premium & réservation",
     activity: "Hébergement / Love Room",
     positioning: "Expérience digitale immersive destinée à présenter un hébergement haut de gamme et faciliter la réservation.",
-    image: screenshot("https://www.love-room-absolu.fr/"),
+    image: "/images/realisations/love-room-absolu.png",
+    imageWidth: 1889,
+    imageHeight: 901,
     imageAlt: "Aperçu du site Love Room Absolu",
     technologies: [],
   },
@@ -43,7 +46,9 @@ export const projects: readonly Project[] = [
     category: "Plateforme web métier",
     activity: "Mise en relation dans le secteur du décapage",
     positioning: "Plateforme nationale permettant aux particuliers et professionnels de déposer leur projet et d’être orientés vers des spécialistes du décapage.",
-    image: screenshot("https://www.decapage-france.fr/"),
+    image: "/images/realisations/decapage-france.png",
+    imageWidth: 1899,
+    imageHeight: 904,
     imageAlt: "Aperçu de la plateforme Décapage France",
     technologies: [],
   },
