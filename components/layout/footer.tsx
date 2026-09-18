@@ -14,6 +14,14 @@ export function Footer() {
           <p className="mt-5 max-w-md text-sm leading-7 text-muted">
             Studio digital indépendant. Nous imaginons des présences digitales singulières, utiles et durables.
           </p>
+          <nav aria-label="Expertises MRD Studio" className="mt-8 grid max-w-md grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted">
+            <Link href="/creation-site-internet" className="transition-colors hover:text-accent">Création de site internet</Link>
+            <Link href="/site-vitrine" className="transition-colors hover:text-accent">Site vitrine</Link>
+            <Link href="/refonte-site-internet" className="transition-colors hover:text-accent">Refonte de site</Link>
+            <Link href="/referencement-google" className="transition-colors hover:text-accent">Référencement</Link>
+            <Link href="/realisations" className="transition-colors hover:text-accent">Réalisations</Link>
+            <Link href="/blog" className="transition-colors hover:text-accent">Conseils</Link>
+          </nav>
           <div className="mt-10 flex items-center gap-3 text-[8px] uppercase tracking-[.24em] text-white/30">
             <span className="size-1 rounded-full bg-accent shadow-[0_0_9px_#00d9ff]" />
             Design · Performance · Visibilité

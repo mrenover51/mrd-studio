@@ -17,12 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug);
   if (!project) return {};
   const path = `/realisations/${project.slug}`;
+  const title = project.seoTitle ?? `${project.name} — Réalisation`;
+  const description = project.seoDescription ?? project.positioning;
   return {
-    title: `${project.name} — Réalisation`,
-    description: project.positioning,
+    title: project.seoTitle ? { absolute: project.seoTitle } : title,
+    description,
     alternates: { canonical: path, languages: { "fr-FR": path, "x-default": path } },
-    openGraph: { title: `${project.name} | Réalisation MRD Studio`, description: project.positioning, url: path, locale: "fr_FR", type: "article", images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: project.name }] },
-    twitter: { card: "summary_large_image", title: `${project.name} | MRD Studio`, description: project.positioning, images: ["/og-image.jpg"] },
+    openGraph: { title, description, url: path, locale: "fr_FR", type: "article", images: [{ url: project.image, width: project.imageWidth, height: project.imageHeight, alt: project.imageAlt }] },
+    twitter: { card: "summary_large_image", title, description, images: [project.image] },
   };
 }
 
@@ -57,9 +59,10 @@ export default async function ProjectPage({ params }: Props) {
           <div className="container-wide grid gap-14 lg:grid-cols-[.34fr_.66fr] lg:gap-24">
             <Reveal><p className="eyebrow">Le projet</p><h2 className="display mt-6 text-4xl tracking-[-.045em] sm:text-6xl">Une réponse<br /><span className="text-accent">sur mesure.</span></h2></Reveal>
             <Reveal className="space-y-12">
-              <div><p className="text-[9px] uppercase tracking-[.18em] text-accent">Présentation</p><p className="mt-5 max-w-3xl text-base leading-8 text-muted">{project.positioning}</p></div>
-              <div><p className="text-[9px] uppercase tracking-[.18em] text-electric">Objectif documenté</p><p className="mt-5 max-w-3xl text-base leading-8 text-muted">Concevoir une expérience digitale cohérente avec l’activité « {project.activity} » et le positionnement {project.category.toLowerCase()} du projet.</p></div>
-              <div className="border-t border-white/[.08] pt-9"><p className="max-w-3xl text-sm leading-7 text-white/45">Cette étude de cas sera enrichie progressivement à partir d’éléments vérifiés : problématique, conception, fonctionnalités, responsive, technologies, galerie et résultat.</p></div>
+              <div><p className="text-[9px] uppercase tracking-[.18em] text-accent">Contexte</p><p className="mt-5 max-w-3xl text-base leading-8 text-muted">{project.context}</p></div>
+              <div><p className="text-[9px] uppercase tracking-[.18em] text-electric">Objectifs</p><ul className="mt-5 grid gap-3 text-sm leading-7 text-muted">{project.objectives.map((objective) => <li key={objective} className="flex gap-3"><span className="text-accent">—</span>{objective}</li>)}</ul></div>
+              <div className="grid gap-8 border-t border-white/[.08] pt-9 sm:grid-cols-2">{project.projectNotes.map(([title, text]) => <div key={title}><h3 className="display text-2xl">{title}</h3><p className="mt-4 text-sm leading-7 text-muted">{text}</p></div>)}</div>
+              <nav aria-label="Services liés au projet" className="border-t border-white/[.08] pt-8"><p className="text-[9px] uppercase tracking-[.18em] text-white/35">Approfondir</p><div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">{project.relatedServices.map((service) => <Link key={service.href} href={service.href} className="text-xs text-muted underline decoration-white/15 underline-offset-4 transition-colors hover:text-accent">{service.label}</Link>)}</div></nav>
               <a href={project.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-accent/35 bg-accent/[.07] px-5 text-[9px] uppercase tracking-[.14em] text-paper transition-colors hover:border-accent/65">Visiter le site <ArrowUpRight size={13} /></a>
             </Reveal>
           </div>

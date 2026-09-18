@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check, Layers3, Search, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, Gauge, Layers3, LockKeyhole, MonitorSmartphone, Palette, Search, ShieldCheck } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
@@ -16,9 +16,26 @@ const localLinks = [
   ["Laon", "/creation-site-laon"],
 ];
 
+const pillarFoundations = [
+  [Palette, "Design sur mesure", "Une direction visuelle conçue autour de votre positionnement, sans imposer la structure d’un thème générique."],
+  [MonitorSmartphone, "Responsive utile", "Des contenus, parcours et appels à l’action contrôlés sur mobile, tablette et ordinateur."],
+  [Gauge, "Performance", "Images dimensionnées, polices optimisées et JavaScript maîtrisé pour préserver la vitesse et la stabilité."],
+  [Search, "SEO dès la conception", "Une architecture lisible, des pages indexables, des métadonnées propres et un maillage fondé sur les intentions."],
+  [LockKeyhole, "Sécurité et continuité", "HTTPS, dépendances suivies, sauvegardes et responsabilités d’hébergement définies selon le projet."],
+] as const;
+
+const pillarLinks = [
+  ["Créer un site vitrine premium", "/site-vitrine", "Présenter une activité, rassurer et faciliter la prise de contact."],
+  ["Concevoir un site internet premium", "/site-premium", "Travailler la perception de marque sans sacrifier l’usage ni la vitesse."],
+  ["Refondre un site existant", "/refonte-site-internet", "Faire évoluer le design et la technique tout en protégeant les acquis SEO."],
+  ["Préparer le référencement", "/referencement-google", "Structurer la technique, les contenus et le maillage autour de recherches utiles."],
+  ["Maintenir le site dans le temps", "/maintenance-site-internet", "Organiser mises à jour, surveillance, corrections et évolutions."],
+] as const;
+
 export function ServicePage({ service }: { service: ServiceProfile }) {
   const url = `https://mrdstudio.fr/${service.slug}`;
   const related = service.related.map((slug) => serviceBySlug[slug]).filter(Boolean);
+  const isPillar = service.slug === "creation-site-internet";
   const schema = [
     {
       "@context": "https://schema.org",
@@ -67,10 +84,19 @@ export function ServicePage({ service }: { service: ServiceProfile }) {
               <p className="eyebrow mb-7">Expertise MRD Studio</p>
               <h1 className="display max-w-6xl text-[clamp(56px,8vw,120px)] leading-[.86] tracking-[-.055em]">{service.title}</h1>
               <p className="mt-10 max-w-3xl text-base leading-8 text-muted sm:text-lg">{service.lead}</p>
-              <div className="mt-10 flex flex-wrap gap-3"><Button href="/contact">Parler de votre projet</Button><Button href="#methode-service" variant="secondary">Comprendre la méthode</Button></div>
+              <div className="mt-10 flex flex-wrap gap-3"><Button href="/contact">Parler de votre projet</Button><Button href="/realisations" variant="secondary">Découvrir nos réalisations</Button></div>
             </Reveal>
           </div>
         </section>
+
+        {isPillar && (
+          <section className="section-pad">
+            <div className="container-wide">
+              <Reveal><p className="eyebrow mb-5">Un site professionnel, de bout en bout</p><h2 className="display max-w-5xl text-5xl tracking-[-.045em] sm:text-7xl">Le sur-mesure ne s’arrête pas<br /><span className="text-accent">à l’apparence.</span></h2><p className="mt-8 max-w-3xl text-[15px] leading-8 text-muted">Un site vitrine premium doit rendre l’offre compréhensible, inspirer confiance et faciliter le contact. Sa qualité dépend autant de la hiérarchie des contenus que du design, du rendu mobile, de la rapidité et de la capacité du site à être exploré par les moteurs de recherche.</p></Reveal>
+              <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-5">{pillarFoundations.map(([Icon, title, text], index) => <Reveal key={title} delay={index * .04}><article className="premium-card h-full p-7"><Icon className="text-accent" size={21} strokeWidth={1.35} /><h3 className="display mt-10 text-2xl">{title}</h3><p className="mt-4 text-xs leading-6 text-muted">{text}</p></article></Reveal>)}</div>
+            </div>
+          </section>
+        )}
 
         <section className="section-pad bg-panel/45">
           <div className="container-wide grid gap-16 lg:grid-cols-2">
@@ -79,12 +105,30 @@ export function ServicePage({ service }: { service: ServiceProfile }) {
           </div>
         </section>
 
+        {isPillar && (
+          <section className="section-pad border-y border-white/[.07] bg-panel/25">
+            <div className="container-wide grid gap-14 lg:grid-cols-[.38fr_.62fr] lg:gap-24">
+              <Reveal><p className="eyebrow mb-5">Choisir le bon périmètre</p><h2 className="display text-5xl tracking-[-.045em] sm:text-6xl">Une architecture adaptée<br /><span className="text-accent">à votre intention.</span></h2><p className="mt-7 text-sm leading-7 text-muted">Un site vitrine, une refonte et un accompagnement SEO ne répondent pas au même besoin. Ces pages détaillent chaque périmètre sans multiplier les variantes artificielles.</p></Reveal>
+              <div className="border-t border-white/10">{pillarLinks.map(([title, href, text]) => <Link key={href} href={href} className="group grid gap-3 border-b border-white/10 py-7 sm:grid-cols-[.7fr_1.3fr_auto] sm:items-center"><h3 className="display text-2xl transition-colors group-hover:text-accent">{title}</h3><p className="text-xs leading-6 text-muted">{text}</p><ArrowRight className="text-accent transition-transform group-hover:translate-x-1" size={16} /></Link>)}</div>
+            </div>
+          </section>
+        )}
+
         <section className="section-pad">
           <div className="container-wide">
             <Reveal><p className="eyebrow mb-5">Livrables</p><h2 className="display text-5xl tracking-[-.045em] sm:text-7xl">Un périmètre lisible,<br /><span className="text-accent">avant de commencer.</span></h2></Reveal>
             <div className="mt-14 grid gap-4 md:grid-cols-2">{service.deliverables.map((item, index) => <Reveal key={item} delay={index * .05}><div className="premium-card flex min-h-28 items-center gap-5 p-6"><span className="grid size-9 shrink-0 place-items-center rounded-full border border-accent/25 text-accent"><Check size={14} /></span><span className="text-sm">{item}</span></div></Reveal>)}</div>
           </div>
         </section>
+
+        {isPillar && (
+          <section className="section-pad">
+            <div className="container-wide">
+              <Reveal className="flex flex-col justify-between gap-7 md:flex-row md:items-end"><div><p className="eyebrow mb-5">Des projets réels</p><h2 className="display text-5xl tracking-[-.045em] sm:text-7xl">La conception mise<br /><span className="text-accent">à l’épreuve du réel.</span></h2></div><Link href="/realisations" className="inline-flex items-center gap-2 text-xs text-accent">Voir toutes les réalisations <ArrowRight size={14} /></Link></Reveal>
+              <div className="mt-12 grid gap-4 md:grid-cols-2">{[["MRénover", "/realisations/mrenover", "Site vitrine pour une entreprise de rénovation et de décapage laser."], ["Love Room Absolu", "/realisations/love-room-absolu", "Expérience premium pour présenter un hébergement et faciliter la réservation."], ["Décapage France", "/realisations/decapage-france", "Plateforme web de mise en relation autour des métiers du décapage."], ["Boucherie Tourteaux", "/realisations/boucherie-tourteaux", "Site vitrine premium pour une boucherie artisanale et son service traiteur."]].map(([title, href, text]) => <Link key={href} href={href} className="premium-card group p-7"><h3 className="display text-3xl transition-colors group-hover:text-accent">{title}</h3><p className="mt-4 text-sm leading-7 text-muted">{text}</p><span className="mt-7 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.14em] text-accent">Étudier le projet <ArrowRight size={12} /></span></Link>)}</div>
+            </div>
+          </section>
+        )}
 
         <section id="methode-service" className="section-pad bg-panel/45">
           <div className="container-wide">
@@ -108,7 +152,7 @@ export function ServicePage({ service }: { service: ServiceProfile }) {
           </div>
         </section>
 
-        <section className="relative py-28 text-center"><Reveal className="container-wide"><h2 className="display text-5xl tracking-[-.045em] sm:text-7xl">Un projet mérite une<br /><span className="text-accent">réponse précise.</span></h2><Button href="/contact" className="mt-10">Échanger avec MRD Studio</Button></Reveal></section>
+        <section className="relative py-28 text-center"><Reveal className="container-wide"><h2 className="display text-5xl tracking-[-.045em] sm:text-7xl">Un projet mérite une<br /><span className="text-accent">réponse précise.</span></h2><div className="mt-10 flex flex-wrap justify-center gap-3"><Button href="/contact">Parler de votre projet</Button><Button href="/realisations" variant="secondary">Découvrir nos réalisations</Button></div></Reveal></section>
       </main>
       <Footer />
     </>

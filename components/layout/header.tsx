@@ -9,7 +9,7 @@ import { useMobilePerformance } from "@/hooks/use-mobile-performance";
 
 const links = [
   ["Accueil", "/#accueil"],
-  ["Philosophie", "/#philosophie"],
+  ["Services", "/creation-site-internet"],
   ["Méthode", "/#methode"],
   ["Réalisations", "/realisations"],
   ["Contact", "/contact"],

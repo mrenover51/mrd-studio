@@ -26,7 +26,7 @@ export default function RealisationsPage() {
           <Reveal className="container-wide relative">
             <p className="eyebrow mb-7">Réalisations</p>
             <h1 className="display max-w-6xl text-[clamp(58px,9vw,132px)] leading-[.85] tracking-[-.055em]">Des expériences pensées<br /><span className="text-accent">pour le réel.</span></h1>
-            <p className="mt-9 max-w-2xl text-base leading-8 text-muted">Trois projets, trois contextes métier et une même exigence : rendre l’offre claire, créer une présence singulière et faciliter l’action.</p>
+            <p className="mt-9 max-w-2xl text-base leading-8 text-muted">Quatre projets, quatre contextes métier et une même exigence : rendre l’offre claire, créer une présence singulière et faciliter l’action.</p>
           </Reveal>
         </section>
         <section className="section-pad pt-10 sm:pt-14">

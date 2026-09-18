@@ -13,6 +13,7 @@ export const pageUrls = [
   "/realisations/mrenover",
   "/realisations/love-room-absolu",
   "/realisations/decapage-france",
+  "/realisations/boucherie-tourteaux",
   "/politique-de-confidentialite",
   "/politique-cookies",
   "/mentions-legales",
