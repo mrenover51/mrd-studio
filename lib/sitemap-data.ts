@@ -14,6 +14,7 @@ export const pageUrls = [
   "/realisations/love-room-absolu",
   "/realisations/decapage-france",
   "/realisations/boucherie-tourteaux",
+  "/realisations/emma-peynet",
   "/politique-de-confidentialite",
   "/politique-cookies",
   "/mentions-legales",

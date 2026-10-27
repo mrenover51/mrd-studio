@@ -89,6 +89,25 @@ export const projects: readonly Project[] = [
     projectNotes: [["Contenus", "La présentation articule l’identité de la boucherie, son offre de produits et son activité de traiteur."], ["Expérience responsive", "L’interface est pensée pour conserver une lecture claire des informations sur les différents formats d’écran."], ["Visibilité locale", "La structure éditoriale relie l’activité, l’offre et l’implantation locale sans multiplier les pages artificielles."]],
     relatedServices: [{ label: "Créer un site vitrine pour un commerce", href: "/site-vitrine" }, { label: "Travailler sa visibilité locale", href: "/seo-local" }],
   },
+  {
+    slug: "emma-peynet",
+    name: "Emma Peynet",
+    url: "https://emmapeynet.fr",
+    category: "Site vitrine professionnel",
+    activity: "Réflexologie, naturopathie et accompagnement en nutrition à Avize",
+    positioning: "Création d'un site vitrine professionnel pour Emma Peynet, avec une identité visuelle soignée, une navigation intuitive et une expérience adaptée aux ordinateurs, tablettes et smartphones.",
+    image: "/realisations/emma.png",
+    imageWidth: 1900,
+    imageHeight: 874,
+    imageAlt: "Aperçu du site Emma Peynet, réflexologie et naturopathie à Avize",
+    technologies: [],
+    seoTitle: "Emma Peynet — Création de site internet | MRD Studio",
+    seoDescription: "Découvrez le site internet Emma Peynet réalisé par MRD Studio : conception sur mesure, design professionnel et expérience responsive.",
+    context: "Emma Peynet propose un accompagnement en réflexologie, naturopathie et nutrition à Avize. Le site présente son activité et permet aux visiteurs de découvrir ses accompagnements et de prendre contact.",
+    objectives: ["Présenter les accompagnements avec clarté", "Créer une identité visuelle soignée", "Faciliter la navigation et la prise de contact sur tous les écrans"],
+    projectNotes: [["Type de projet", "Création de site internet sur mesure"], ["Identité visuelle", "Une présentation soignée accompagne la découverte de l’activité et des accompagnements proposés."], ["Expérience responsive", "Une navigation intuitive et une lecture adaptée aux ordinateurs, tablettes et smartphones."]],
+    relatedServices: [{ label: "Concevoir un site vitrine professionnel", href: "/site-vitrine" }, { label: "Créer un site internet sur mesure", href: "/creation-site-internet" }],
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
